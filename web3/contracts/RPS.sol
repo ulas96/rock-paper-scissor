@@ -230,6 +230,27 @@ function getPlayerWins(address adr) public view returns (Game[] memory wins) {
         addGame(pendingGames[id].gameCreator, firstMoves[id], msg.sender, _secondMove, amount, winner);
         
        }
+
+           function claimRewards(uint _amount) public {
+        require(claimableRewards[msg.sender] > 0);
+        require(_amount <= claimableRewards[msg.sender]);
+        claimableRewards[msg.sender] -= _amount;
+        claimedRewards[msg.sender] += _amount;
+        payable(msg.sender).transfer(_amount);
+    }
+
+    function cancelGame(uint id) external {
+        require(msg.sender == pendingGames[id].gameCreator);
+        require(pendingGames[id].active == true);
+        pendingGames[id].active = false;
+        claimableRewards[msg.sender] += amount;
+        }
+
+
+    function withdraw(uint _amount) external{
+        require(msg.sender == owner);
+        payable(msg.sender).transfer(_amount);
+    }
     constructor(uint _amount) payable {
             amount = _amount;
             owner = msg.sender;
