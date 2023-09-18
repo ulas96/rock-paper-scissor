@@ -8,7 +8,7 @@ const hre = require("hardhat");
 
 async function main() {
   const Game = await hre.ethers.getContractFactory("RPS");
-  const game = await Game.deploy(1);
+  const game = await Game.deploy(10, { value: 10 });
   await game.waitForDeployment();
 
   console.log(game.target);
