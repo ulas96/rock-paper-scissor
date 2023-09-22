@@ -38,13 +38,14 @@ function App() {
               
             const provider = new ethers.providers.Web3Provider(ethereum);
             const signer = provider.getSigner();
+            
             const contract = new ethers.Contract(contractAddress, contractABI,signer);
             //const result = await contract.getGame(1);
             setState({provider: provider, signer: signer, contract: contract})
             //console.log(result);
             setAccount(_account);
             //console.log(state);
-
+            console.log(signer);
             }
   
           } catch(e) {
@@ -74,8 +75,9 @@ function App() {
     //console.log(pendingGame);
   }    
 
-  const handleChange = (event) => {
-    setMove(event.target.value);
+  const handleMoveChange = (event) => {
+    //preventDefault();
+    setMove(event.target.id);
   };
 
 
@@ -98,20 +100,27 @@ function App() {
     await game.wait();
   } 
 
+console.log(move); 
 
     return (
-      <div >
-      <p style={{ marginTop: "10px", marginLeft: "5px" }}>
-        <small>Connected Account - {account}</small>
-      </p>
-      <div>
-      <select value={move} onChange={handleChange}>
-        <option value="rock" >Rock</option>
-        <option value="paper" >Paper</option>
-        <option value="scissor" >Scissor</option>
-      </select>
+      <div className="container">
+
+      <div id="account" >
+      <div id="status-check">
+        {account ? <div id="green-circle"></div> : <div id="gray-circle">
+        </div> }
       </div>
-      <div>
+      <div id="account-address">
+        <small>{String(account).slice(0,5)}...{String(account).slice(39,42)}</small>
+      </div>
+      </div>
+      <div id="move-selection" >
+        <p>Make your move:</p>
+      <img src="../src/assets/rock.png" id="rock"  onClick={handleMoveChange}  />
+      <img src="../src/assets/paper.png" id="paper" onClick={handleMoveChange} />
+      <img src="../src/assets/scissor.png" id="scissor" onClick={handleMoveChange} />
+      </div>
+      <div id="create-button">
         <button onClick={handleCreateGame}>Create Game</button>
       </div>
 
@@ -119,9 +128,8 @@ function App() {
         <div>
           <button onClick={getPendingGames}>See pending games</button>
         </div>
-        <div id="pending-game-elements" height="100px">
+        <div className="pending-games" height="100px">
             {pendingGames.map((g) => {
-              console.log(parseInt(g.id._hex))
               return <div id="pending-game-element">
                 <div>
                   {g.gameCreator}
