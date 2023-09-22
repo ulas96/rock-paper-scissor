@@ -16,8 +16,7 @@ function App() {
 
   const [move,setMove] = useState("");
   const [pendingGames, setPendingGames] = useState([]);
-  // const [game, setGame] = useState();
-    //* Set the wallet address to the state
+  const [isSelected, setIsSelected] = useState(false);
     useEffect(() => {
       const connectWallet = async () => {
         const contractAddress = "0x08D06f587F1b588FEd3eeE2167a2415B271F3886";
@@ -40,11 +39,8 @@ function App() {
             const signer = provider.getSigner();
             
             const contract = new ethers.Contract(contractAddress, contractABI,signer);
-            //const result = await contract.getGame(1);
-            setState({provider: provider, signer: signer, contract: contract})
-            //console.log(result);
+            setState({provider: provider, signer: signer, contract: contract});
             setAccount(_account);
-            //console.log(state);
             console.log(signer);
             }
   
@@ -76,10 +72,15 @@ function App() {
   }    
 
   const handleMoveChange = (event) => {
-    //preventDefault();
+    const selectedImages = document.querySelectorAll('.selected');
+  
+    if (selectedImages.length === 1) {
+      selectedImages[0].classList.remove('selected');
+    }
+  
+    event.target.classList.add('selected');
     setMove(event.target.id);
   };
-
 
   const getPendingGames = async () => {
         const _pendingGames = await state.contract.getActivePendingGames();
@@ -116,7 +117,7 @@ console.log(move);
       </div>
       <div id="move-selection" >
         <p>Make your move:</p>
-      <img src="../src/assets/rock.png" id="rock"  onClick={handleMoveChange}  />
+      <img src="../src/assets/rock.png"  id="rock"  onClick={handleMoveChange}  />
       <img src="../src/assets/paper.png" id="paper" onClick={handleMoveChange} />
       <img src="../src/assets/scissor.png" id="scissor" onClick={handleMoveChange} />
       </div>

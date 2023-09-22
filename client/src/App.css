@@ -67,7 +67,7 @@
   inset 0 0 1.3rem #a7a6d5; 
 }
 
-#scissor active {
+.selected {
   box-shadow: 0 0 .2rem #d5a6a6,
   0 0 .2rem #d5a6a6,
   0 0 2rem #a7a6d5,
@@ -75,7 +75,6 @@
   0 0 2.8rem #a7a6d5,
   inset 0 0 1.3rem #a7a6d5; 
 }
-
 #create-button {
   border-radius: 10px;
   margin-top: 40px;
