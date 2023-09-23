@@ -117,10 +117,13 @@ console.log(move);
 
       <div className="container">
       <div id="move-selection" >
-        <p id="move-text">Make your move:</p>
-        <img src="../src/assets/rock.png"  id="rock"  onClick={handleMoveChange}  />
-        <img src="../src/assets/paper.png" id="paper" onClick={handleMoveChange} />
-        <img src="../src/assets/scissor.png" id="scissor" onClick={handleMoveChange} />
+        <p id="move-text">You can make your move for creating and joining game both by clicking to desired hands below.</p>
+        <div id="moves">
+          <img src="../src/assets/rock.png"  id="rock"  onClick={handleMoveChange}  />
+          <img src="../src/assets/paper.png" id="paper" onClick={handleMoveChange} />
+          <img src="../src/assets/scissor.png" id="scissor" onClick={handleMoveChange} />
+        </div>
+
       </div>
       
       <div id="create-button">

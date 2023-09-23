@@ -138,10 +138,15 @@ button:focus-visible {
     right: 17px;
   }
 
+  #move-text{
+    margin-top: 10px;
+  }
 
-
-  #move-text {
-    margin-top: 50px;
+  #move-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
   }
 
 
