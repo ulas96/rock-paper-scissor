@@ -103,7 +103,7 @@ function App() {
 console.log(move); 
 
     return (
-      <div className="container">
+      <div>
 
       <div id="account" >
       <div id="status-check">
@@ -114,12 +114,15 @@ console.log(move);
         <small>{String(account).slice(0,5)}...{String(account).slice(39,42)}</small>
       </div>
       </div>
+
+      <div className="container">
       <div id="move-selection" >
-        <p>Make your move:</p>
-      <img src="../src/assets/rock.png"  id="rock"  onClick={handleMoveChange}  />
-      <img src="../src/assets/paper.png" id="paper" onClick={handleMoveChange} />
-      <img src="../src/assets/scissor.png" id="scissor" onClick={handleMoveChange} />
+        <p id="move-text">Make your move:</p>
+        <img src="../src/assets/rock.png"  id="rock"  onClick={handleMoveChange}  />
+        <img src="../src/assets/paper.png" id="paper" onClick={handleMoveChange} />
+        <img src="../src/assets/scissor.png" id="scissor" onClick={handleMoveChange} />
       </div>
+      
       <div id="create-button">
         <button onClick={handleCreateGame}>Create Game</button>
       </div>
@@ -139,6 +142,8 @@ console.log(move);
             })}
         </div>
       </div>
+      </div>
+
      
       
      
