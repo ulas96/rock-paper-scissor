@@ -16,7 +16,6 @@ function App() {
 
   const [move,setMove] = useState("");
   const [pendingGames, setPendingGames] = useState([]);
-  const [isSelected, setIsSelected] = useState(false);
     useEffect(() => {
       const connectWallet = async () => {
         const contractAddress = "0x08D06f587F1b588FEd3eeE2167a2415B271F3886";
