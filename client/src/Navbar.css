@@ -1,0 +1,74 @@
+#account {
+    position: absolute;
+    top: 2px;
+    right: 15px;
+    width: 130px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: #1f1a24;
+  } 
+  
+  #green-circle {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #15fc00;
+    }
+  
+    #gray-circle {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: gray;
+      }
+  
+    #status-check {
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      right: 110px;
+    }
+  
+    #account-address{
+      position: absolute;
+      right: 17px;
+    }
+  
+
+/* Navbar.css */
+
+.navbar{
+    position: relative;
+    flex-direction: column; /* Stack components vertically */
+  }
+  
+  /* Style the navigation links */
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Display links horizontally using flexbox */
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 30px;
+    margin-right: 40px; /* Add margin to separate each link */
+    
+  }
+
+  li:hover{
+    box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #a7a6d5,
+    0 0 0.8rem #a7a6d5,
+    0 0 2.8rem #a7a6d5,
+    inset 0 0 1.3rem #a7a6d5; 
+  }
+  
+
+  

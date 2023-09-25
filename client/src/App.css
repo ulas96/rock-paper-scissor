@@ -39,16 +39,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-#account {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 130px;
-  height: 30px;
-  border: 1px solid white;
-  border-radius: 20px;
-  background-color: #1f1a24;
-} 
 
 #rock {
   border-radius: 50%;
@@ -112,31 +102,6 @@ button:focus-visible {
   margin-bottom: 5px;
 }
 
-#green-circle {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #15fc00;
-  }
-
-  #gray-circle {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background-color: gray;
-    }
-
-  #status-check {
-    position: absolute;
-    top: 10px;
-    bottom: 10px;
-    right: 110px;
-  }
-
-  #account-address{
-    position: absolute;
-    right: 17px;
-  }
 
   #move-text{
     margin-top: 10px;
