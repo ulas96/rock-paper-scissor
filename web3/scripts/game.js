@@ -7,12 +7,6 @@ const contractName = "RPS";
 async function main() {
   const game = await hre.ethers.getContractAt(contractName, gameAddr);
 
-  // const tx1 = await game.createGame(1, { value: 10 });
-  // await tx1.wait();
-
-  // const tx2 = await game.joinGame(1, 0, { value: 1 });
-  // await tx2.wait();
-
   const result = await game.getPendingGame(1);
   console.log(result);
 }
