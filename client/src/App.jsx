@@ -3,7 +3,8 @@ import {ethers} from "ethers";
 import contract from './contract/RPS.json';
 import "./Navbar";
 import './App.css';
-import { Navbar } from './Navbar';
+import { Navbar, active } from './Navbar';
+import {Play} from "./Play";
 
 function App() {
   // const gameAddr = "0x54F77c2200Ae81FE5Ce824Fa71071dE78e3061E4";
@@ -15,8 +16,8 @@ function App() {
     contract: null,
   });
 
-  const [move,setMove] = useState("");
-  const [pendingGames, setPendingGames] = useState([]);
+
+  const _active = Navbar.active;
     useEffect(() => {
       const connectWallet = async () => {
         const contractAddress = "0x08D06f587F1b588FEd3eeE2167a2415B271F3886";
@@ -52,9 +53,6 @@ function App() {
       connectWallet();
     }, []);
 
-    useEffect(() => {
-      getPendingGames();
-    }, [])
 
 
   const handleCreateGame = async () => {
@@ -101,48 +99,22 @@ function App() {
     await game.wait();
   } 
 
-console.log(move); 
+  const mainRender = () => {
+    if(_active === "play") {
+      return <Play state={state}/>
+    }
+  }
+
+  console.log(active);
 
     return (
+      <>
+        <Navbar account={account}></Navbar>
       <div>
-        <Navbar account={account}/>
-        
-      <div className="container">
-      <div id="move-selection" >
-        <p id="move-text">You can make your move for creating and joining game both by clicking to desired hands below.</p>
-        <div id="moves">
-          <img src="../src/assets/rock.png"  id="rock"  onClick={handleMoveChange}  />
-          <img src="../src/assets/paper.png" id="paper" onClick={handleMoveChange} />
-          <img src="../src/assets/scissor.png" id="scissor" onClick={handleMoveChange} />
-        </div>
-
-      </div>
-      
-      <div id="create-button">
-        <button onClick={handleCreateGame}>Create Game</button>
-      </div>
-
-      <div id="pending-games">
-        <div>
-          <button onClick={getPendingGames}>See pending games</button>
-        </div>
-        <div className="pending-games" height="100px">
-            {pendingGames.map((g) => {
-              return <div id="pending-game-element">
-                <div>
-                  {g.gameCreator}
-                </div>
-                <button value={parseInt(g.id._hex)} onClick={handleJoinGame}>join game</button>
-                </div>;
-            })}
-        </div>
-      </div>
-      </div>
-
-     
-      
-     
+        {mainRender}
     </div>
+      </>
+      
     )
   
 }

@@ -1,28 +1,32 @@
 import {useState} from "react";
 import "./Navbar.css";
+
+export const [active,setActive] = useState("home");
+const handleSetActive = (e) => {
+    setActive(e.target.id);
+}
+
 export function Navbar({account}) {
-    const [active,setActive] = useState("home");
-    const handleSetActive = (e) => {
-        setActive(e.target.value);
-    }
+
     return <>
     <div className="navbar">
-        <div className="navbar-text">
-                <ul>
-                    <li value="home">
+        <div className="navbar-text" onClick={handleSetActive}>
+                <ul >
+                    <li id="home">
                     Home
                     </li>
-                    <li value="play">
+                    <li id="play">
                     Play
                     </li>
-                    <li value="dashboard">
+                    <li id="dashboard">
                     Dashboard
                     </li>
-                    <li value="claim-rewards">
+                    <li id="claim-rewards">
                     Claim Rewards
                     </li>
                 </ul>
         </div>
+
 
         <div id="account" >
                     <div id="status-check">
