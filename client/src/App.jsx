@@ -3,7 +3,7 @@ import {ethers} from "ethers";
 import contract from './contract/RPS.json';
 import "./Navbar";
 import './App.css';
-import { Navbar, active } from './Navbar';
+import { Navbar,activeDiv} from './Navbar';
 import {Play} from "./Play";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
   });
 
 
-  const _active = Navbar.active;
+const active = Navbar.activeDiv;
     useEffect(() => {
       const connectWallet = async () => {
         const contractAddress = "0x08D06f587F1b588FEd3eeE2167a2415B271F3886";
@@ -105,13 +105,12 @@ function App() {
     }
   }
 
-  console.log(active);
-
+  
     return (
       <>
         <Navbar account={account}></Navbar>
       <div>
-        {mainRender}
+        {active ? <Play state={state}></Play> : ""};
     </div>
       </>
       

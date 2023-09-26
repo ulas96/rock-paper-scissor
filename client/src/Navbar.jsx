@@ -1,13 +1,18 @@
 import {useState} from "react";
 import "./Navbar.css";
 
-export const [active,setActive] = useState("home");
-const handleSetActive = (e) => {
-    setActive(e.target.id);
-}
+export let  activeDiv;
+
 
 export function Navbar({account}) {
+    const [active,setActive] = useState("home");
+    const handleSetActive = (e) => {
+        setActive(e.target.id);
+        activeDiv = active;
+    }
 
+    console.log(activeDiv)
+    
     return <>
     <div className="navbar">
         <div className="navbar-text" onClick={handleSetActive}>
@@ -28,7 +33,7 @@ export function Navbar({account}) {
         </div>
 
 
-        <div id="account" >
+        <div id="account" > 
                     <div id="status-check">
                         {account ? <div id="green-circle"></div> : <div id="gray-circle"> </div> }
                     </div>
@@ -40,3 +45,4 @@ export function Navbar({account}) {
 
         </>;
 }
+
