@@ -11,7 +11,7 @@ export function Navbar({account}) {
         activeDiv = active;
     }
 
-    console.log(activeDiv)
+    console.log(activeDiv);
     
     return <>
     <div className="navbar">

@@ -3,7 +3,7 @@ import {ethers} from "ethers";
 import contract from './contract/RPS.json';
 import "./Navbar";
 import './App.css';
-import { Navbar,activeDiv} from './Navbar';
+import { Navbar, activeDiv} from './Navbar';
 import {Play} from "./Play";
 
 function App() {
@@ -110,7 +110,7 @@ const active = Navbar.activeDiv;
       <>
         <Navbar account={account}></Navbar>
       <div>
-        {active ? <Play state={state}></Play> : ""};
+        <Play state={state}></Play>
     </div>
       </>
       
