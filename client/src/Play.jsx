@@ -11,7 +11,7 @@ export function Play({ state }) {
       _move = 0;
     } else if (move === "paper") {
       _move = 1;
-    } else if (move == "scissor") {
+    } else if (move === "scissor") {
       _move = 2;
     }
     const pendingGame = await state.contract.createGame(_move, { value: 10 });
@@ -50,10 +50,6 @@ export function Play({ state }) {
     await game.wait();
   };
 
-  const mainRender = () => {
-    if (active === "play") {
-    }
-  };
   return (
     <div>
 

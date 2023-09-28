@@ -3,8 +3,12 @@ import {ethers} from "ethers";
 import contract from './contract/RPS.json';
 import "./Navbar";
 import './App.css';
-import { Navbar, activeDiv} from './Navbar';
+import { Navbar} from './Navbar';
 import {Play} from "./Play";
+
+import { Route, createRoutesFromElements, createBrowserRouter, RouterProvider} from "react-router-dom";
+
+
 
 function App() {
   // const gameAddr = "0x54F77c2200Ae81FE5Ce824Fa71071dE78e3061E4";
@@ -17,7 +21,7 @@ function App() {
   });
 
 
-const active = Navbar.activeDiv;
+
     useEffect(() => {
       const connectWallet = async () => {
         const contractAddress = "0x08D06f587F1b588FEd3eeE2167a2415B271F3886";
@@ -55,19 +59,7 @@ const active = Navbar.activeDiv;
 
 
 
-  const handleCreateGame = async () => {
-    let _move;
-    if(move ===  "rock") {
-      _move = 0;
-    } else if(move === "paper"){
-      _move = 1;
-    } else if (move == "scissor") {
-      _move = 2;
-    }
-    const pendingGame = await state.contract.createGame(_move, {value: 10});
-    pendingGame.wait();
-    //console.log(pendingGame);
-  }    
+
 
   const handleMoveChange = (event) => {
     const selectedImages = document.querySelectorAll('.selected');
@@ -97,25 +89,17 @@ const active = Navbar.activeDiv;
     }
     const game = await state.contract.joinGame(e.target.value, _move, {value: 10});
     await game.wait();
-  } 
-
-  const mainRender = () => {
-    if(_active === "play") {
-      return <Play state={state}/>
-    }
   }
 
+  const router = createBrowserRouter( createRoutesFromElements(
+      <Route path="/" element={<Navbar account={account}/>}>
+        <Route path="play" element={< Play/>}/>
+      </Route>
+  ));
+
   
-    return (
-      <>
-        <Navbar account={account}></Navbar>
-      <div>
-        <Play state={state}></Play>
-    </div>
-      </>
-      
-    )
+    return <RouterProvider router={router} />;
   
 }
 
-export default App
+export default App;
