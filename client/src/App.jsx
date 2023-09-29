@@ -92,10 +92,10 @@ function App() {
   }
 
   const router = createBrowserRouter( createRoutesFromElements(
-      <Route path="/" element={<Navbar account={account}/>}>
-        <Route path="play" element={< Play/>}/>
-      </Route>
-  ));
+    <Route path="/" element={<Navbar account={account}/>}>
+      <Route path="play" element={< Play/>}/>
+    </Route>
+));
 
   
     return <RouterProvider router={router} />;
