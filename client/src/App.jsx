@@ -64,7 +64,7 @@ function App() {
 
   const router = createBrowserRouter( createRoutesFromElements(
     <Route path="/" element={<Root account={account}/>}>
-      <Route path="play" element={< Play/>}/>
+      <Route path="play" element={< Play state={state} />}/>
     </Route>
 ));
 

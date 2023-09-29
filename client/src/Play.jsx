@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Play.css";
 
 export function Play({ state }) {
 
   const [move,setMove] = useState("");
   const [pendingGames, setPendingGames] = useState([]);
+
+  useEffect(() =>{
+    getPendingGames();
+  })
   const handleCreateGame = async () => {
     let _move;
     if (move === "rock") {

@@ -72,6 +72,8 @@
   
 
   
-a{
-  
-}
+  .navbar-text ul li a {
+    pointer-events: onClick;
+    text-decoration: none;
+    color: white;
+  }
