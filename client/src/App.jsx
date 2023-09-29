@@ -3,12 +3,11 @@ import {ethers} from "ethers";
 import contract from './contract/RPS.json';
 import "./Navbar";
 import './App.css';
-import { Navbar} from './Navbar';
 import {Play} from "./Play";
 
 import { Route, createRoutesFromElements, createBrowserRouter, RouterProvider} from "react-router-dom";
 import Root from './Root';
-
+import { Home } from './Home';
 
 
 function App() {
@@ -65,6 +64,7 @@ function App() {
   const router = createBrowserRouter( createRoutesFromElements(
     <Route path="/" element={<Root account={account}/>}>
       <Route path="play" element={< Play state={state} />}/>
+      <Route path='home'element={<Home />}/>
     </Route>
 ));
 
