@@ -7,6 +7,7 @@ import { Navbar} from './Navbar';
 import {Play} from "./Play";
 
 import { Route, createRoutesFromElements, createBrowserRouter, RouterProvider} from "react-router-dom";
+import Root from './Root';
 
 
 
@@ -61,38 +62,8 @@ function App() {
 
 
 
-  const handleMoveChange = (event) => {
-    const selectedImages = document.querySelectorAll('.selected');
-  
-    if (selectedImages.length === 1) {
-      selectedImages[0].classList.remove('selected');
-    }
-  
-    event.target.classList.add('selected');
-    setMove(event.target.id);
-  };
-
-  const getPendingGames = async () => {
-        const _pendingGames = await state.contract.getActivePendingGames();
-        setPendingGames(_pendingGames);
-
-  };
-
-  const handleJoinGame = async (e) => {
-    let _move;
-    if(move ===  "rock") {
-      _move = 0;
-    } else if(move === "paper"){
-      _move = 1;
-    } else if (move == "scissor") {
-      _move = 2;
-    }
-    const game = await state.contract.joinGame(e.target.value, _move, {value: 10});
-    await game.wait();
-  }
-
   const router = createBrowserRouter( createRoutesFromElements(
-    <Route path="/" element={<Navbar account={account}/>}>
+    <Route path="/" element={<Root account={account}/>}>
       <Route path="play" element={< Play/>}/>
     </Route>
 ));

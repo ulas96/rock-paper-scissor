@@ -17,11 +17,12 @@ export function Navbar({account}) {
     <div className="navbar">
         <div className="navbar-text" onClick={handleSetActive}>
                 <ul >
-                    <li id="home">
-                    Home
+                    <li>
+                        <a id="home" href="/home"> Home</a>
                     </li>
-                    <li id="play">
-                    Play
+                    <li id="play" href="/play">
+                    <a id="play" href="/play">Play</a>
+
                     </li>
                     <li id="dashboard">
                     Dashboard
