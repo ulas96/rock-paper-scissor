@@ -88,14 +88,14 @@ export function Play({ state }) {
 
         <div id="pending-games">
           <div>
-            <button onClick={getPendingGames}>See pending games</button>
+            <p>PendingGames:</p>
           </div>
           <div className="pending-games" height="100px">
             {pendingGames.map((g) => {
               return (
-                <div id="pending-game-element">
-                  <div>{g.gameCreator}</div>
-                  <button value={parseInt(g.id._hex)} onClick={handleJoinGame}>
+                <div className="pending-game-element">
+                  <div className="game-creator" >{g.gameCreator}</div>
+                  <button className="join-button" value={parseInt(g.id._hex)} onClick={handleJoinGame}>
                     join game
                   </button>
                 </div>

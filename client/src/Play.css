@@ -99,3 +99,26 @@ button {
     margin-top: 100px;
   }
 
+  .pending-game-element {
+    display: flex;
+    margin-left: 30%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #1f1a24;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    max-width: 41.5%;
+    border-radius: 10px;
+  }
+.join-button {
+  margin-left: 30px;
+  bottom: 5px;
+  padding-bottom: 10px;
+}
+
+.game-creator{
+  display: flex;
+  align-items: center;
+  max-width: 380px;
+}
