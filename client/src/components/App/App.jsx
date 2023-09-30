@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { ethers } from "ethers";
+import { Route, createRoutesFromElements, createBrowserRouter, RouterProvider} from "react-router-dom";
+
 import contract from "/Users/ulas/Documents/GitHub/rock-paper-scissor/client/src/contract/RPS.json"
 import './App.css';
-import { Play } from '../Play/Play';
-
-import { Route, createRoutesFromElements, createBrowserRouter, RouterProvider} from "react-router-dom";
-import { Root } from '../Root';
-import { Home } from '../Home/Home';
+import Play from '../Play/Play';
+import Root from '../Root';
+import Home from '../Home/Home';
+import Dashboard from '../Dashboard/Dashboard';
+import Claim from  "../Claim/Claim";
 
 
 function App() {
@@ -18,14 +20,6 @@ function App() {
     signer: null,
     contract: null,
   });
-
-  // const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (window["ethereum"]){ 
-  //   navigate("/home"); 
-  // }
-  // });
 
     useEffect(() => {
       const connectWallet = async () => {
@@ -68,9 +62,10 @@ function App() {
 
   const router = createBrowserRouter( createRoutesFromElements(
     <Route path="/" element={<Root account={account}/>}>
-       <Route path="/" element={<Home />}/>
+      <Route path="/" element={<Home />}/>
       <Route path="play" element={<Play state={state} />}/>
-
+      <Route path="dashboard" element={<Dashboard />}/>
+      <Route path="claim" element={<Claim />}/> 
     </Route>
 ));
 

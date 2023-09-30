@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Play.css";
 
-export function Play({ state }) {
+export default function Play({ state }) {
 
   const [move,setMove] = useState("");
   const [pendingGames, setPendingGames] = useState([]);
