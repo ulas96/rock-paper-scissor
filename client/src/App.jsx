@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import {ethers} from "ethers";
 import contract from './contract/RPS.json';
-import "./Navbar";
 import './App.css';
 import {Play} from "./Play";
 
-import { Route, createRoutesFromElements, createBrowserRouter, RouterProvider} from "react-router-dom";
+import { Route, createRoutesFromElements, createBrowserRouter, RouterProvider, useNavigate} from "react-router-dom";
 import Root from './Root';
 import { Home } from './Home';
 
@@ -20,7 +19,13 @@ function App() {
     contract: null,
   });
 
+  // const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   if (window["ethereum"]){ 
+  //   navigate("/home"); 
+  // }
+  // });
 
     useEffect(() => {
       const connectWallet = async () => {
@@ -42,13 +47,11 @@ function App() {
               });
               
             const provider = new ethers.providers.Web3Provider(ethereum);
-            console.log(ethereum);
             const signer = provider.getSigner();
             
             const contract = new ethers.Contract(contractAddress, contractABI,signer);
             setState({provider: provider, signer: signer, contract: contract});
             setAccount(_account);
-            
             }
   
           } catch(e) {
@@ -61,12 +64,13 @@ function App() {
 
 
 
-console.log(account);
+
 
   const router = createBrowserRouter( createRoutesFromElements(
     <Route path="/" element={<Root account={account}/>}>
-      <Route path="play" element={< Play state={state} />}/>
-      <Route path='home'element={<Home />}/>
+       <Route path='/'element={<Home />}/>
+      <Route path="play" element={<Play state={state} />}/>
+
     </Route>
 ));
 
