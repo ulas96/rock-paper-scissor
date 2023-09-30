@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import {ethers} from "ethers";
-import contract from './contract/RPS.json';
+import { ethers } from "ethers";
+import contract from "/Users/ulas/Documents/GitHub/rock-paper-scissor/client/src/contract/RPS.json"
 import './App.css';
-import {Play} from "./Play";
+import { Play } from '../Play/Play';
 
-import { Route, createRoutesFromElements, createBrowserRouter, RouterProvider, useNavigate} from "react-router-dom";
-import Root from './Root';
-import { Home } from './Home';
+import { Route, createRoutesFromElements, createBrowserRouter, RouterProvider} from "react-router-dom";
+import { Root } from '../Root';
+import { Home } from '../Home/Home';
 
 
 function App() {
