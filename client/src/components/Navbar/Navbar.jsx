@@ -10,17 +10,24 @@ export function Navbar({account}) {
     <div className="navbar">
         <div className="navbar-text">
                 <ul >
-                    <li>
-                        <a id="home" href="/"> Home</a>
+                    <li onClick={() => {
+                                location.href="/"
+                            }}>
+                        Home
                     </li>
-                    <li id="play" href="/play">
-                    <a id="play" href="/play">Play</a>
-
+                    <li id="play" onClick={() => {
+                                location.href="/play"
+                            }}>
+                    Play
                     </li>
-                    <li id="dashboard">
+                    <li id="dashboard" onClick={() => {
+                                location.href="/dashboard"
+                            }}>
                     Dashboard
                     </li>
-                    <li id="claim-rewards">
+                    <li id="claim-rewards" onClick={() => {
+                                location.href="/claim"
+                            }}>
                     Claim Rewards
                     </li>
                 </ul>
