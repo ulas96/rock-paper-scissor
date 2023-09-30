@@ -29,7 +29,7 @@ export function Navbar({account}) {
 
         <div id="account" > 
                     <div id="status-check">
-                        {account ? <div id="green-circle"></div> : <div id="gray-circle"> </div> }
+                        {account !== "None" ? <div id="green-circle"></div> : <div id="gray-circle"> </div> }
                     </div>
                     <div id="account-address">
                         <small>{String(account).slice(0,5)}...{String(account).slice(39,42)}</small>
