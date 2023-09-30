@@ -1,21 +1,14 @@
 import {useState} from "react";
 import "./Navbar.css";
 
-export let  activeDiv;
+
 
 
 export function Navbar({account}) {
-    const [active,setActive] = useState("home");
-    const handleSetActive = (e) => {
-        setActive(e.target.id);
-        activeDiv = active;
-    }
 
-    console.log(activeDiv);
-    
     return <>
     <div className="navbar">
-        <div className="navbar-text" onClick={handleSetActive}>
+        <div className="navbar-text">
                 <ul >
                     <li>
                         <a id="home" href="/home"> Home</a>

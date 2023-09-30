@@ -28,6 +28,7 @@ function App() {
         const contractABI = ABI;
           try{
             const { ethereum } = window;
+            console.log(ethereum);
             if (ethereum) {
               const _account = await ethereum.request({
                 method: "eth_requestAccounts",
@@ -41,12 +42,13 @@ function App() {
               });
               
             const provider = new ethers.providers.Web3Provider(ethereum);
+            console.log(ethereum);
             const signer = provider.getSigner();
             
             const contract = new ethers.Contract(contractAddress, contractABI,signer);
             setState({provider: provider, signer: signer, contract: contract});
             setAccount(_account);
-            console.log(signer);
+            
             }
   
           } catch(e) {
@@ -59,7 +61,7 @@ function App() {
 
 
 
-
+console.log(account);
 
   const router = createBrowserRouter( createRoutesFromElements(
     <Route path="/" element={<Root account={account}/>}>
