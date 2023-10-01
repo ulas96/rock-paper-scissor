@@ -6,8 +6,14 @@
 #claim {
     margin-top: 250px;
     width: 400px;
-    height: 200px;
+    height: 250px;
     padding: auto;
     border: 2px black solid;
+    border-radius: 10px;
+    background-color: #1d1a24;
+}
 
+#claim-value {
+display: flex;
+align-items: row;
 }

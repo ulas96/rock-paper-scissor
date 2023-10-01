@@ -5,13 +5,13 @@ button {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1f1a24;
+    background-color: #1d1a24;
     cursor: pointer;
     transition: border-color 0.25s;
   }
   
   button:hover {
-    border-color: #522673;
+    border-color: #1d1a24;
     box-shadow: 0 0 .2rem #d5a6a6,
     0 0 .2rem #d5a6a6,
     0 0 2rem #a7a6d5,
@@ -104,7 +104,7 @@ button {
     margin-left: 30%;
     margin-top: 10px;
     margin-bottom: 10px;
-    border: 2px solid #1f1a24;
+    border: 2px solid #1d1a24;
     padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 10px;

@@ -12,7 +12,6 @@ import Claim from  "../Claim/Claim";
 
 
 function App() {
-  // const gameAddr = "0x54F77c2200Ae81FE5Ce824Fa71071dE78e3061E4";
   const { abi: ABI } = contract;
   const [account, setAccount] = useState("None");
   const [state, setState] = useState({
@@ -46,7 +45,7 @@ function App() {
             
             const contract = new ethers.Contract(contractAddress, contractABI,signer);
             setAccount(_account);
-            setState({provider: provider, signer: signer, contract: contract, account: account});
+            setState({provider: provider, signer: signer, contract: contract});
             }
   
           } catch(e) {

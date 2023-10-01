@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useState} from "react";
 import "./Claim.css";
 
 export default function Claim({state, account}) {
@@ -20,18 +20,20 @@ export default function Claim({state, account}) {
     }
 
     const claimRewards = async () => {
-       await state.contract.claimRewards(clai)
+       await state.contract.claimRewards(claimAmount);
     }
 
 
     return (
         <div id="claim-container">
             <div id="claim">
-                <div id="claim-value">
-                    <input value={claimAmount} onChange={handleChange}></input>
-                </div>
+                
+                <p id="claim-text"></p>
 
-                <button onClick={getAllowClaim}>MAX</button>
+                <div id="claim-value">
+                    <input id="" value={claimAmount} onChange={handleChange}/>
+                    <p>MAX</p>
+                </div>
 
                 <button onClick={claimRewards}>Claim</button>
             </div>
