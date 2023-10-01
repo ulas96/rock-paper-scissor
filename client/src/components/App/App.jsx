@@ -19,6 +19,7 @@ function App() {
     provider: null,
     signer: null,
     contract: null,
+    account: null
   });
 
     useEffect(() => {
@@ -44,8 +45,8 @@ function App() {
             const signer = provider.getSigner();
             
             const contract = new ethers.Contract(contractAddress, contractABI,signer);
-            setState({provider: provider, signer: signer, contract: contract});
             setAccount(_account);
+            setState({provider: provider, signer: signer, contract: contract, account: account});
             }
   
           } catch(e) {
@@ -65,7 +66,7 @@ function App() {
       <Route path="/" element={<Home />}/>
       <Route path="play" element={<Play state={state} />}/>
       <Route path="dashboard" element={<Dashboard />}/>
-      <Route path="claim" element={<Claim />}/> 
+      <Route path="claim" element={<Claim state={state} account={account}/>}/> 
     </Route>
 ));
 

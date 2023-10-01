@@ -13,7 +13,8 @@
     "ethers": "^5.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0"
+    "react-router-dom": "^6.16.0",
+    "solc": "^0.8.21"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
