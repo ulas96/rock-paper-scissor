@@ -1,0 +1,13 @@
+#claim-container {
+    display: flex;
+    justify-content: center;
+}
+
+#claim {
+    margin-top: 250px;
+    width: 400px;
+    height: 200px;
+    padding: auto;
+    border: 2px black solid;
+
+}

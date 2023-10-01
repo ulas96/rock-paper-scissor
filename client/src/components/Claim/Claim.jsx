@@ -1,4 +1,5 @@
 import React, {useRef, useState} from "react";
+import "./Claim.css";
 
 export default function Claim({state, account}) {
     const [_account] = account;
@@ -19,12 +20,12 @@ export default function Claim({state, account}) {
     }
 
     const claimRewards = async () => {
-       await state.contract.claimRewards(claimAmount)
+       await state.contract.claimRewards(clai)
     }
 
 
     return (
-        <>
+        <div id="claim-container">
             <div id="claim">
                 <div id="claim-value">
                     <input value={claimAmount} onChange={handleChange}></input>
@@ -34,6 +35,6 @@ export default function Claim({state, account}) {
 
                 <button onClick={claimRewards}>Claim</button>
             </div>
-        </>
+        </div>
     );
 }
