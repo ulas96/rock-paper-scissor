@@ -8,12 +8,25 @@
     width: 400px;
     height: 250px;
     padding: auto;
-    border: 2px black solid;
     border-radius: 10px;
+    border: 1px solid #100e13;
     background-color: #1d1a24;
 }
+
+
 
 #claim-value {
 display: flex;
 align-items: row;
+justify-content: center;
+}
+
+input{
+    background-color: #1d1a24;
+    border: none;
+    font-size: 30px;
+}
+
+input:focus {
+    outline: none;
 }

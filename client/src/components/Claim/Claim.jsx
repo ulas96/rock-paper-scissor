@@ -31,8 +31,8 @@ export default function Claim({state, account}) {
                 <p id="claim-text"></p>
 
                 <div id="claim-value">
-                    <input id="" value={claimAmount} onChange={handleChange}/>
-                    <p>MAX</p>
+                    <input value={claimAmount} onChange={handleChange}/>
+                    <p onClick={getAllowClaim}>MAX</p>
                 </div>
 
                 <button onClick={claimRewards}>Claim</button>
