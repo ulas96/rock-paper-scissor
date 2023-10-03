@@ -14,7 +14,7 @@ export default function Dashboard({state,account}) {
     } 
 
     const getPlayerLoses = async () => {
-        const _loses = await state.contract.getPlayerLoses(_account);
+        const _loses = await state.contract.getPlayerLooses(_account);
         setLoses(_loses);
     }
 
@@ -28,7 +28,7 @@ const getPlayerDeuces = async () => {
         getPlayerWins();
         getPlayerLoses();
         getPlayerDeuces();
-    })
+    });
 
     return (
         <>
