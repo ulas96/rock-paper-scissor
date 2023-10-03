@@ -1,9 +1,23 @@
-import "react";
+import "./Dashboard.css"
+import { useEffect, useState } from "react";
+export default function Dashboard({state,account}) {
 
-export default function Dashboard() {
+    const [_account] = account
+
+    const [wins, setWins] = useState([]);
+
+    const getPlayerWins = async () => {
+        const _wins = await state.contract.getPlayerWins(_account);
+        setWins(_wins);
+    }
+
+    useEffect(() => {
+        getPlayerWins();
+    })
+
     return (
         <>
-            Dashboard
+            {`Number of wins: ${wins.length}`}
         </>
     );
 }

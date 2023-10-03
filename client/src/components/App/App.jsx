@@ -64,7 +64,7 @@ function App() {
     <Route path="/" element={<Root account={account}/>}>
       <Route path="/" element={<Home />}/>
       <Route path="play" element={<Play state={state} />}/>
-      <Route path="dashboard" element={<Dashboard />}/>
+      <Route path="dashboard" element={<Dashboard state={state} account={account} />}/>
       <Route path="claim" element={<Claim state={state} account={account}/>}/> 
     </Route>
 ));
