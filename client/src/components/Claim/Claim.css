@@ -55,7 +55,8 @@ input:focus {
 #claim-button{
 
     border: none;
+    border-radius: 10px;
     background-color: #400b8f;
     font-weight: bold;
-    
+
 }

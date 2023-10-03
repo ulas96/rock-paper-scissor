@@ -1,6 +1,9 @@
+import React from "react";
+import "./Home.css"
+
 export default function Home(){
     return (
-        <div className="home">
+        <div className="home-container">
             <h1>Welcome to toe2toe</h1><br/>
 
             <p>It is a simple promise. Play rock scissor game on the blockchain. Winner takes all. </p><br/>
@@ -14,7 +17,7 @@ export default function Home(){
 
             <p>If you have already won a game:</p> <br/>
             <button onClick={() => {
-                location.href="/cliam-rewards"
+                location.href="/claim"
             }}>
                 Claim Rewards
             </button>

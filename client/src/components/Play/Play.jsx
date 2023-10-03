@@ -57,7 +57,7 @@ export default function Play({ state }) {
   return (
     <div>
 
-      <div className="container">
+      <div className="play-container">
         <div id="move-selection">
           <p id="move-text">
             You can make your move for creating and joining game both by
