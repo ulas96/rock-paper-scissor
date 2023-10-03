@@ -7,9 +7,8 @@
 }
 
 .play-ref {
-    color: #ac9bca;
     transition: background-color 0.3s ease;
-    background-color: #fa3939;
+    background-color: #911717;
 }
 
 .play-ref:hover {

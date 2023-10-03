@@ -3,12 +3,12 @@
   background-color: #1d1a24;
 }
 
-img{
+.move-img{
   border-radius: 50%;
-  padding: 80px;
+  margin: 60px;
 }
 
-img:hover{
+.move-img:hover{
   box-shadow: 0 0 .2rem #d5a6a6,
   0 0 .2rem #d5a6a6,
   0 0 2rem #a7a6d5,

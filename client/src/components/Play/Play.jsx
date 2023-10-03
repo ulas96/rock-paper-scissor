@@ -63,14 +63,14 @@ export default function Play({ state }) {
             You can make your move for creating and joining game both by
             clicking to desired hands below.
           </p>
-          <div id="moves">
+          <div className="move-image-div">
             <img
               src="../src/assets/rock.png"
               className="move-img"
               id="rock"
               onClick={handleMoveChange}
             />
-            <img
+            <img 
               src="../src/assets/paper.png"
               className="move-img"
               id="paper"
@@ -79,7 +79,6 @@ export default function Play({ state }) {
             <img
               src="../src/assets/scissor.png"
               className="move-img"
-              id="scissor"
               onClick={handleMoveChange}
             />
           </div>
