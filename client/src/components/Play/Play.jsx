@@ -83,7 +83,7 @@ export default function Play({ state }) {
         </div>
 
         <div id="create-button">
-          <button onClick={handleCreateGame}>Create Game</button>
+          <button className="button" onClick={handleCreateGame}>Create Game</button>
         </div>
 
         <div id="pending-games">
@@ -95,7 +95,7 @@ export default function Play({ state }) {
               return (
                 <div className="pending-game-element">
                   <div className="game-creator" >{g.gameCreator}</div>
-                  <button className="join-button" value={parseInt(g.id._hex)} onClick={handleJoinGame}>
+                  <button className="button" id="join-button"value={parseInt(g.id._hex)} onClick={handleJoinGame}>
                     join game
                   </button>
                 </div>

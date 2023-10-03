@@ -10,7 +10,7 @@ button {
     transition: border-color 0.25s;
   }
   
-  button:hover {
+  .button:hover {
     border-color: #1d1a24;
     box-shadow: 0 0 .2rem #d5a6a6,
     0 0 .2rem #d5a6a6,
@@ -111,7 +111,7 @@ button {
     max-width: 41.5%;
     border-radius: 10px;
   }
-.join-button {
+#join-button {
   margin-left: 30px;
   bottom: 5px;
   padding-bottom: 10px;
