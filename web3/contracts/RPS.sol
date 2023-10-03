@@ -238,7 +238,7 @@ contract RPS {
         uint256 looseCount = 0;
 
         for (uint256 i = 0; i < Games.length; i++) {
-            if (Games[i].winner != address(0) && Games[i].winner == adr) {
+            if (Games[i].winner != address(0) && Games[i].winner != adr) {
                 looseCount++;
             }
         }

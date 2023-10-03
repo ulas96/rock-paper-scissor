@@ -79,6 +79,7 @@ export default function Play({ state }) {
             <img
               src="../src/assets/scissor.png"
               className="move-img"
+              id="scissor"
               onClick={handleMoveChange}
             />
           </div>

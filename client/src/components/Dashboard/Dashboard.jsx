@@ -1,6 +1,6 @@
 import "./Dashboard.css"
 import { useEffect, useState } from "react";
-export default function Dashboard({state,account}) {
+export default function Dashboard({state, account}) {
 
     const [_account] = account
 
@@ -14,14 +14,14 @@ export default function Dashboard({state,account}) {
     } 
 
     const getPlayerLoses = async () => {
-        const _loses = await state.contract.getPlayerLooses(_account);
+        const _loses = await state.contract.getPlayerLoses(_account);
         setLoses(_loses);
     }
 
-const getPlayerDeuces = async () => {
-    const _deuces =  await state.contract.getPlayerDeuces(_account);
-    setDeuces(_deuces);
-}
+    const getPlayerDeuces = async () => {
+        const deuces =  await state.contract.getPlayerDeuces(_account);
+        setDeuces(deuces);
+    }
 
 
     useEffect(() => {
@@ -32,8 +32,6 @@ const getPlayerDeuces = async () => {
 
     return (
         <>
-            
-            
             <p>{`Wins: ${wins.length}`}</p>
             <p>{`Loses: ${loses.length}`}</p>
             <p>{`Deuces: ${deuces.length}`}</p>
