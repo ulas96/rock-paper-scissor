@@ -1,6 +1,21 @@
 .home-container {
     height: 550px;
+    margin-top: 40px;
     border: 2px solid #1d1a24;
     border-radius: 10px;
     background-color: #1d1a24;
+}
+
+.play-ref {
+    color: #ac9bca;
+    transition: background-color 0.3s ease;
+    background-color: #fa3939;
+}
+
+.play-ref:hover {
+    background-color: #4d228e;
+}
+
+.claim-ref {
+    background-color: #4d228e;
 }

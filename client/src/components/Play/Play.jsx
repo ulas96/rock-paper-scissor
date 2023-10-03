@@ -66,16 +66,19 @@ export default function Play({ state }) {
           <div id="moves">
             <img
               src="../src/assets/rock.png"
+              className="move-img"
               id="rock"
               onClick={handleMoveChange}
             />
             <img
               src="../src/assets/paper.png"
+              className="move-img"
               id="paper"
               onClick={handleMoveChange}
             />
             <img
               src="../src/assets/scissor.png"
+              className="move-img"
               id="scissor"
               onClick={handleMoveChange}
             />

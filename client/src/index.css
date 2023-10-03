@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color:#ac9bca;
   background-color: #2c2840;
 
   font-synthesis: none;
@@ -26,4 +26,13 @@ h1 {
   line-height: 1.1;
 }
 
-
+button {
+  color: #ac9bca;
+  border-radius: 10px;
+  border: 1px transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+}

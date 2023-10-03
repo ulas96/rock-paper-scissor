@@ -61,13 +61,14 @@
     
   }
 
-  li:hover{
-    box-shadow: 0 0 .2rem #fff,
-    0 0 .2rem #fff,
-    0 0 2rem #a7a6d5,
-    0 0 0.8rem #a7a6d5,
-    0 0 2.8rem #a7a6d5,
-    inset 0 0 1.3rem #a7a6d5; 
+  li:hover {
+    border-color: #3c3945;
+    box-shadow: 0 0 .5rem #ac9bca,
+    0 0 .5rem #ac9bca,
+    0 0 5rem #ac9bca,
+    0 0 0.8rem #ac9bca,
+    0 0 2.8rem #ac9bca,
+    inset 0 0 1.3rem #ac9bca; 
     cursor: pointer;
   }
   

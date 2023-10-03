@@ -9,14 +9,14 @@ export default function Home(){
             <p>It is a simple promise. Play rock scissor game on the blockchain. Winner takes all. </p><br/>
             <p>You can audit the relability of the system from here.</p><br/>
 
-            <button onClick={() => {
+            <button className="play-ref" onClick={() => {
                 location.href="/play"
             }} >
                 Let's play
             </button>
 
             <p>If you have already won a game:</p> <br/>
-            <button onClick={() => {
+            <button className="claim-ref" onClick={() => {
                 location.href="/claim"
             }}>
                 Claim Rewards
