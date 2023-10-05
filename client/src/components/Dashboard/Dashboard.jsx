@@ -75,7 +75,7 @@ export default function Dashboard({state, account}) {
                 {playerPendingGames.map((p) => {
                     return (
                         <div clasName="pending-game" id={parseInt(p.id)}>
-                            {p.active ? parseInt(p.id) : ""}
+                            {p.active ? new Date(p.timestamp * 1000).toLocaleString() : ""}
                         </div>
                     );
                 })}
