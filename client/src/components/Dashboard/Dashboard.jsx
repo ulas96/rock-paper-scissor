@@ -8,8 +8,8 @@ export default function Dashboard({state, account}) {
     const [wins, setWins] = useState([]);
     const [loses,setLoses] = useState([]);
     const [deuces, setDeuces] = useState([]);
-    const [games, setGames] = useState([]);
-
+    const [playerGames, setPlayerGames] = useState([]);
+    const [playerPendingGames, setPlayerPendingGames] = useState([]);
 
     const getPlayerWins = async () => {
         const _wins = await state.contract.getPlayerWins(_account);
@@ -28,7 +28,12 @@ export default function Dashboard({state, account}) {
 
     const getPlayerGames = async () => {
         const games = await state.contract.getPlayerGames(_account);
-        setGames(games);
+        setPlayerGames(games);
+    }
+
+    const getPlayerPendingGames = async () => {
+        const pendingGames = await state.contract.getPlayerPendingGames(_account);
+        setPlayerPendingGames(pendingGames);
     }
 
 
@@ -37,15 +42,41 @@ export default function Dashboard({state, account}) {
         getPlayerLoses();
         getPlayerDeuces();
         getPlayerGames();
+        getPlayerPendingGames();
     });
 
     return (
         <>
         <div className="dashboard-container">
-            <p>{`Total Games: ${games.length}`}</p>
-            <p>{`Wins: ${wins.length}`}</p>
-            <p>{`Loses: ${loses.length}`}</p>
-            <p>{`Deuces: ${deuces.length}`}</p>
+            <div className="summary">
+                <p>{`Total Games: ${playerGames.length}`}</p>
+                <p>{`Wins: ${wins.length}`}</p>
+                <p>{`Loses: ${loses.length}`}</p>
+                <p>{`Deuces: ${deuces.length}`}</p>
+            </div>
+
+            <div className="game-history">
+                <div className="player-games">
+                {playerGames.map((g) => {
+                    return (
+                        <div clasName="game">
+                            {parseInt(g.id)}
+                        </div>
+                    );
+                })}
+                </div>
+
+                <div className="player-pending-games">
+                {playerPendingGames.map((p) => {
+                    return (
+                        <div clasName="pending-game">
+                            {parseInt(p.id)}
+                        </div>
+                    );
+                })}
+                </div> 
+            </div>
+
         </div>
             
         </>

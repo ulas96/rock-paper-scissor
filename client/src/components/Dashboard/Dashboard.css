@@ -4,3 +4,14 @@
     background-color: #1d1a24;
     border-radius: 10px;
 }
+
+.summary {
+    border-radius: 10px;
+    text-align: left;
+    margin-left: 20px;
+    padding-left: 15px;
+    padding-top: px;
+    padding-bottom: 10px;
+    width: 200px;
+    background-color: #53427a;
+}
