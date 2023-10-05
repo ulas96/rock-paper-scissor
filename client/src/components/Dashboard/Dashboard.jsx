@@ -32,9 +32,12 @@ export default function Dashboard({state, account}) {
 
     return (
         <>
+        <div className="dasboard-container">
             <p>{`Wins: ${wins.length}`}</p>
             <p>{`Loses: ${loses.length}`}</p>
             <p>{`Deuces: ${deuces.length}`}</p>
+        </div>
+            
         </>
     );
 }
