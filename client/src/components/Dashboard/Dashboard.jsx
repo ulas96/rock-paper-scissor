@@ -56,7 +56,7 @@ export default function Dashboard({state, account}) {
             </div>
 
             <div className="game-history">
-                <div className="player-games">
+                <div className="games">
                 {playerGames.map((g) => {
                     return (
                         <div clasName="game">
@@ -66,11 +66,11 @@ export default function Dashboard({state, account}) {
                 })}
                 </div>
 
-                <div className="player-pending-games">
+                <div className="games">
                 {playerPendingGames.map((p) => {
                     return (
                         <div clasName="pending-game">
-                            {parseInt(p.id)}
+                            {p.active ? parseInt(p.id) : ""}
                         </div>
                     );
                 })}

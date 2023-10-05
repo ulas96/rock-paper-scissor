@@ -1,7 +1,7 @@
 .dashboard-container{
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #1d1a24;
+    background-color: #1f1c26;
     border-radius: 10px;
 }
 
@@ -12,6 +12,20 @@
     padding-left: 15px;
     padding-top: px;
     padding-bottom: 10px;
-    width: 200px;
+    width: 400px;
     background-color: #53427a;
+    display: flex;
+}
+
+.game-history{
+    border-radius: 10px;
+
+    /* flex-direction: inline; */
+}
+
+.games{
+    width: 30%;
+    padding: 20px;
+    border: black;
+    border-radius: 10px;
 }

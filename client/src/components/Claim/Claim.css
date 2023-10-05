@@ -10,7 +10,7 @@
     padding: auto;
     border-radius: 10px;
     border: 1px solid #1d1a24;
-    background-color: #1d1a24;
+    background-color: #1f1c26;
 }
 
 
@@ -23,7 +23,7 @@ justify-content: center;
 
 input{
     width: 150px;
-    background-color: #1d1a24;
+    background-color: transparent;
     border: none;
     font-size: 30px;
 }

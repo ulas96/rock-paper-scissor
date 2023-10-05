@@ -98,7 +98,7 @@ export default function Play({ state }) {
               return (
                 <div className="pending-game-element">
                   <div className="game-creator" >{g.gameCreator}</div>
-                  <button className="button" id="join-button"value={parseInt(g.id._hex)} onClick={handleJoinGame}>
+                  <button className="button" id="join-button" value={parseInt(g.id)} onClick={handleJoinGame}>
                     join game
                   </button>
                 </div>

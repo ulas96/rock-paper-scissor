@@ -1,6 +1,6 @@
 .play-container {
   border-radius: 10px;
-  background-color: #1d1a24;
+  background-color: #1f1c26;
 }
 
 .move-img{
@@ -22,13 +22,13 @@
 
 
   .button:hover {
-    border-color: #3c3945;
-    box-shadow: 0 0 .2rem #ac9bca,
-    0 0 .2rem #ac9bca,
-    0 0 2rem #ac9bca,
-    0 0 0.8rem #ac9bca,
-    0 0 2.8rem #ac9bca,
-    inset 0 0 1.3rem #ac9bca; 
+    border-color: #4d228e;
+    box-shadow: 0 0 .2rem #8d6ac8,
+    0 0 .2rem #8d6ac8,
+    0 0 2rem #8d6ac8,
+    0 0 0.8rem #8d6ac8,
+    0 0 2.8rem #8d6ac8,
+    inset 0 0 1.3rem #8d6ac8; 
   }
 
 
