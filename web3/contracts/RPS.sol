@@ -229,7 +229,7 @@ contract RPS {
         }
     }
 
-    function getPlayerLooses(address adr)
+    function getPlayerLoses(address adr)
         public
         view
         returns (Game[] memory looses)
