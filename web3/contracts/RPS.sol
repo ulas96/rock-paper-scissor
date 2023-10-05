@@ -15,6 +15,7 @@ contract RPS {
         uint256 move2;
         uint256 value;
         address winner;
+        uint timestamp;
     }
 
     struct PendingGame {
@@ -22,6 +23,7 @@ contract RPS {
         address gameCreator;
         uint256 value;
         bool active;
+        uint timestamp;
     }
 
     mapping(uint256 => uint256) private firstMoves;
@@ -52,7 +54,8 @@ contract RPS {
         address opt2,
         uint256 move2,
         uint256 _amount,
-        address winner
+        address winner,
+        uint _timestamp
     ) private {
         totalGameCount++;
         Game memory game = Game(
@@ -62,18 +65,20 @@ contract RPS {
             opt2,
             move2,
             _amount,
-            winner
+            winner,
+            _timestamp
         );
         games[totalGameCount] = game;
     }
 
-    function addPendingGame(uint256 _move, address sender) private {
+    function addPendingGame(uint256 _move, address sender, uint _timestamp) private {
         totalPendingGameCount++;
         PendingGame memory pendingGame = PendingGame(
             totalPendingGameCount,
             sender,
             amount,
-            true
+            true,
+            _timestamp
         );
         pendingGames[totalPendingGameCount] = pendingGame;
         firstMoves[totalPendingGameCount] = _move;
@@ -285,7 +290,7 @@ contract RPS {
         require(msg.value <= address(msg.sender).balance);
         require(msg.value >= amount);
         require(_firstMove == 0 || _firstMove == 2 || _firstMove == 1);
-        addPendingGame(_firstMove, msg.sender);
+        addPendingGame(_firstMove, msg.sender, block.timestamp);
     }
 
     function joinGame(uint256 id, uint256 _secondMove) external payable {
@@ -317,7 +322,8 @@ contract RPS {
             msg.sender,
             _secondMove,
             amount,
-            winner
+            winner,
+            block.timestamp
         );
     }
 

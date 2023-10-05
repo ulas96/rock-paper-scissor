@@ -19,7 +19,8 @@
 
 .game-history{
     border-radius: 10px;
-
+    display: flex;
+    padding-left: 25%;
     /* flex-direction: inline; */
 }
 

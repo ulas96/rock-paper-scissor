@@ -46,10 +46,13 @@
     margin-top: 100px;
     margin-bottom: 60px;
   }
-  
+  .pending-games-container{
+    padding-bottom: 10px;
+  }
+
   .pending-games{
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
   
   

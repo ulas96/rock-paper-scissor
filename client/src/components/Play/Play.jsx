@@ -89,7 +89,7 @@ export default function Play({ state }) {
           <button className="button" onClick={handleCreateGame}>Create Game</button>
         </div>
 
-        <div id="pending-games">
+        <div className="pending-games-container">
           <div>
             <p>PendingGames:</p>
           </div>

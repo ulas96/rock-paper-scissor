@@ -36,6 +36,11 @@ export default function Dashboard({state, account}) {
         setPlayerPendingGames(pendingGames);
     }
 
+    const hanedleCancelGame = async (e) => {
+        const game = await state.contract.cancelGame(e.id);
+        game.wait();
+    }
+
 
     useEffect(() => {
         getPlayerWins();
@@ -69,7 +74,7 @@ export default function Dashboard({state, account}) {
                 <div className="games">
                 {playerPendingGames.map((p) => {
                     return (
-                        <div clasName="pending-game">
+                        <div clasName="pending-game" id={parseInt(p.id)}>
                             {p.active ? parseInt(p.id) : ""}
                         </div>
                     );
