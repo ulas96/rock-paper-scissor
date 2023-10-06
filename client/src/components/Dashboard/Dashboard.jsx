@@ -65,7 +65,15 @@ export default function Dashboard({state, account}) {
                 {playerGames.map((g) => {
                     return (
                         <div clasName="game">
-                            {parseInt(g.id)}
+                            <div className="game-id">
+                                {parseInt(g.id)}
+                            </div>
+
+                            <div className="opponent">
+                                Oponent: {g.opponent1 === _account ? g.opponent1 : g.opponent2}
+                            </div>
+
+
                         </div>
                     );
                 })}
