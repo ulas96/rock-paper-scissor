@@ -40,6 +40,15 @@ export default function Dashboard({state, account}) {
     //     game.wait();
     // }
 
+    const moveConverter = (_move) => {
+        if(_move === 0) {
+            return "rock";
+        }else if(_move === 1) {
+            return "paper";
+        }else {
+            return "scissor";
+        }
+    }
 
     useEffect(() => {
         getPlayerWins();
@@ -95,8 +104,8 @@ export default function Dashboard({state, account}) {
                 {playerGames.map((g) => {
                     return (
                         <div className={`game ${parseInt(g.winner) ===  0 ? "deuce" : parseInt(g.winner) === parseInt(_account) ? "win" : "loss"}`}>
-                            <div className="game-child id" >
-                                {parseInt(g.id)}
+                            <div className="game-child move" >
+                                Your move: {g.opponent1 === _account ? moveConverter(parseInt(g.move1)) : moveConverter(parseInt(g.move2))}
                             </div>
 
                             <div className="game-child opponent" >
@@ -115,9 +124,13 @@ export default function Dashboard({state, account}) {
                 <div className="games" id="pending-games">
                 {playerPendingGames.map((p) => {
                     return (
-                        <div clasName="pending-game" id={parseInt(p.id)}>
+                        <div class  Name="pending-game" id={parseInt(p.id)}>
 
-                            <div>
+                            <div id="pending-game-id">
+                                
+                            </div>
+
+                            <div className="">
                                 Date: {new Date(p.timestamp * 1000).getDay() < 10 ? `0${new Date(p.timestamp * 1000).getDay()}` : new Date(p.timestamp * 1000).getDay()}/{new Date(p.timestamp * 1000).getMonth() < 10 ? `0${new Date(p.timestamp * 1000).getMonth()}` : new Date(p.timestamp * 1000).getMonth()}/{new Date(p.timestamp * 1000).getFullYear()} {new Date(p.timestamp * 1000).getHours() < 10 ? `0${new Date(p.timestamp * 1000).getHours()}` : new Date(p.timestamp * 1000).getHours()}:{new Date(p.timestamp * 1000).getMinutes() < 10 ? `0${new Date(p.timestamp * 1000).getMinutes()}` : new Date(p.timestamp * 1000).getMinutes()}
                             </div>
                             

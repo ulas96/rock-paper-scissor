@@ -10,13 +10,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     border-radius: 10px;
-
     margin-left: 10%;
-
     margin-right: 10%;
     padding-top: 10px;
     padding-bottom: 10px;
-
     background-color: #53427a;
     display: flex;
 }
@@ -47,12 +44,15 @@
 .games{
     width: 40%;
     border: black;
-
+    border-radius: 10px;
 }
 .game{
     width: 250%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    border-radius: 10px;
+    margin-bottom: 1px;
+    
 }
 .opponent{
     display: inline-block;
@@ -65,20 +65,25 @@
 
 
 .win{
-    background-color: #15fc00;
+    background-color: #4de03f;
 }
 
 .loss{
-    background-color: #fc0000;
+    background-color: #cd3d3d;
 }
 .deuce{
-    background-color: grey;
+    background-color: #6f776d;
 }
 
 
 
 .pending-game{
     width: 250%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-radius: 10px;
+    margin-bottom: 1px;
+    background-color: #53427a;
 }
 
 
@@ -86,4 +91,6 @@
 .game-child{
     white-space: nowrap;
     display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
 }
