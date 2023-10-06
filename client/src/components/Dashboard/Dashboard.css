@@ -24,7 +24,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
-    /* flex-direction: inline; */
 }
 .game{
     display: grid;
@@ -36,11 +35,18 @@
     padding: 20px;
     border: black;
     border-radius: 10px;
-    
+}
 
+.win{
+    background-color: #15fc00;
+}
+
+.loss{
+    background-color: #fc0000;
+}
+.deuce{
+    background-color: grey;
 }
 .game-child{
-    width: 50%;
-    float: left;
-    padding: 20px;
+    white-space: nowrap;
 }

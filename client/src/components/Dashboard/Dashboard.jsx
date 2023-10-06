@@ -4,7 +4,6 @@ import "./Dashboard.css"
 export default function Dashboard({state, account}) {
 
     const [_account] = account
-
     const [wins, setWins] = useState([]);
     const [loses,setLoses] = useState([]);
     const [deuces, setDeuces] = useState([]);
@@ -64,15 +63,20 @@ export default function Dashboard({state, account}) {
                 <div className="games">
                 {playerGames.map((g) => {
                     return (
-                        <div className="game">
+                        <div className={`game ${parseInt(g.winner) ===  0 ? "deuce" : parseInt(g.winner) === parseInt(_account) ? "win" : "loss"}`}>
                             <div className="game-child" id="id">
                                 {parseInt(g.id)}
                             </div>
 
                             <div className="game-child" id="opponent">
-                                Oponent: {g.opponent1 === _account ? g.opponent1 : g.opponent2}
+                                Opponent: {g.opponent1 === _account ? `${g.opponent1.slice(0,6)}...${g.opponent1.slice(38,42)}` : `${g.opponent2.slice(0,5)}...${g.opponent2.slice(39,42)}`}
+                            </div>
+                            <div className="game-child" id="winner">
+                                
                             </div>
                         </div>
+
+                        
                     );
                 })}
                 </div>
