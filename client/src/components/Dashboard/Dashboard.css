@@ -34,24 +34,35 @@
 }
 
 .game-history{
+    margin-top: 10px;
+    width: 80%;
     border-radius: 10px;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 10%;
+    margin-right: 10%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+    
+}
+
+.games{
+    width: 40%;
+    border: black;
+
 }
 .game{
+    width: 250%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
 }
-.games{
-    width: 200px;
-    padding: 20px;
-    border: black;
-    border-radius: 10px;
+.opponent{
+    display: inline-block;
 }
+
+.date{
+    padding-left: 10px;
+}
+
+
 
 .win{
     background-color: #15fc00;
@@ -65,6 +76,14 @@
 }
 
 
+
+.pending-game{
+    width: 250%;
+}
+
+
+
 .game-child{
     white-space: nowrap;
+    display: flex;
 }

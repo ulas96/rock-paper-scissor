@@ -35,10 +35,10 @@ export default function Dashboard({state, account}) {
         setPlayerPendingGames(pendingGames);
     }
 
-    const hanedleCancelGame = async (e) => {
-        const game = await state.contract.cancelGame(e.id);
-        game.wait();
-    }
+    // const hanedleCancelGame = async (e) => {
+    //     const game = await state.contract.cancelGame(e.id);
+    //     game.wait();
+    // }
 
 
     useEffect(() => {
@@ -91,19 +91,19 @@ export default function Dashboard({state, account}) {
             </div>
 
             <div className="game-history">
-                <div className="games">
+                <div className="games" id="total-games">
                 {playerGames.map((g) => {
                     return (
                         <div className={`game ${parseInt(g.winner) ===  0 ? "deuce" : parseInt(g.winner) === parseInt(_account) ? "win" : "loss"}`}>
-                            <div className="game-child" id="id">
+                            <div className="game-child id" >
                                 {parseInt(g.id)}
                             </div>
 
-                            <div className="game-child" id="opponent">
+                            <div className="game-child opponent" >
                                 Opponent: {g.opponent1 === _account ? `${g.opponent1.slice(0,6)}...${g.opponent1.slice(38,42)}` : `${g.opponent2.slice(0,5)}...${g.opponent2.slice(39,42)}`}
                             </div>
-                            <div className="game-child" id="winner">
-                                
+                            <div className="game-child date">
+                        Date: {new Date(g.timestamp * 1000).getDay() < 10 ? `0${new Date(g.timestamp * 1000).getDay()}` : new Date(g.timestamp * 1000).getDay()}/{new Date(g.timestamp * 1000).getMonth() < 10 ? `0${new Date(g.timestamp * 1000).getMonth()}` : new Date(g.timestamp * 1000).getMonth()}/{new Date(g.timestamp * 1000).getFullYear()} {new Date(g.timestamp * 1000).getHours() < 10 ? `0${new Date(g.timestamp * 1000).getHours()}` : new Date(g.timestamp * 1000).getHours()}:{new Date(g.timestamp * 1000).getMinutes() < 10 ? `0${new Date(g.timestamp * 1000).getMinutes()}` : new Date(g.timestamp * 1000).getMinutes()}
                             </div>
                         </div>
 
@@ -112,11 +112,15 @@ export default function Dashboard({state, account}) {
                 })}
                 </div>
 
-                <div className="games">
+                <div className="games" id="pending-games">
                 {playerPendingGames.map((p) => {
                     return (
                         <div clasName="pending-game" id={parseInt(p.id)}>
-                            {p.active ? new Date(p.timestamp * 1000).toLocaleString() : ""}
+
+                            <div>
+                                Date: {new Date(p.timestamp * 1000).getDay() < 10 ? `0${new Date(p.timestamp * 1000).getDay()}` : new Date(p.timestamp * 1000).getDay()}/{new Date(p.timestamp * 1000).getMonth() < 10 ? `0${new Date(p.timestamp * 1000).getMonth()}` : new Date(p.timestamp * 1000).getMonth()}/{new Date(p.timestamp * 1000).getFullYear()} {new Date(p.timestamp * 1000).getHours() < 10 ? `0${new Date(p.timestamp * 1000).getHours()}` : new Date(p.timestamp * 1000).getHours()}:{new Date(p.timestamp * 1000).getMinutes() < 10 ? `0${new Date(p.timestamp * 1000).getMinutes()}` : new Date(p.timestamp * 1000).getMinutes()}
+                            </div>
+                            
                         </div>
                     );
                 })}
