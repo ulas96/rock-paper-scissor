@@ -5,7 +5,7 @@ export default function Dashboard({state, account}) {
 
     const [_account] = account
     const [wins, setWins] = useState([]);
-    const [loses,setLoses] = useState([]);
+    const [losses,setLosses] = useState([]);
     const [deuces, setDeuces] = useState([]);
     const [playerGames, setPlayerGames] = useState([]);
     const [playerPendingGames, setPlayerPendingGames] = useState([]);
@@ -15,9 +15,9 @@ export default function Dashboard({state, account}) {
         setWins(_wins);
     } 
 
-    const getPlayerLoses = async () => {
-        const _loses = await state.contract.getPlayerLoses(_account);
-        setLoses(_loses);
+    const getPlayerLosses = async () => {
+        const _losses = await state.contract.getPlayerLoses(_account);
+        setLosses(_losses);
     }
 
     const getPlayerDeuces = async () => {
@@ -43,7 +43,7 @@ export default function Dashboard({state, account}) {
 
     useEffect(() => {
         getPlayerWins();
-        getPlayerLoses();
+        getPlayerLosses();
         getPlayerDeuces();
         getPlayerGames();
         getPlayerPendingGames();
@@ -53,10 +53,41 @@ export default function Dashboard({state, account}) {
         <>
         <div className="dashboard-container">
             <div className="summary">
-                <p>{`Total Games: ${playerGames.length}`}</p>
-                <p>{`Wins: ${wins.length}`}</p>
-                <p>{`Loses: ${loses.length}`}</p>
-                <p>{`Deuces: ${deuces.length}`}</p>
+                <div className="summary-info">
+                    <p>Total games:</p>
+                    <p>{playerGames.length}</p>
+                </div>
+
+                <div className="vertical-line">
+
+                </div>
+
+                <div className="summary-info">
+                    <p>Wins:</p>
+                    <p>{wins.length}</p>
+                </div>
+                
+                <div className="vertical-line">
+
+                </div>
+
+                <div className="summary-info">
+                <p>Losses:</p>
+                    <p>{losses.length}</p>
+                </div>
+
+                <div className="vertical-line">
+
+                </div>
+
+                <div className="summary-info">
+                <p>Deuces:</p>
+                    <p>{deuces.length}</p>
+                </div>
+                
+                
+                
+                
             </div>
 
             <div className="game-history">

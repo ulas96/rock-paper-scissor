@@ -6,15 +6,31 @@
 }
 
 .summary {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     border-radius: 10px;
-    text-align: left;
-    margin-left: 20px;
-    padding-left: 15px;
-    padding-top: px;
+
+    margin-left: 10%;
+
+    margin-right: 10%;
+    padding-top: 10px;
     padding-bottom: 10px;
-    width: 400px;
+
     background-color: #53427a;
     display: flex;
+}
+
+.summary-info{
+    width: 25%;
+    display: grid;
+    grid-template-columns: center;
+    margin-bottom: 10px;
+}
+
+.vertical-line{
+    width: 1px;
+    background-color: black;
 }
 
 .game-history{
@@ -47,6 +63,8 @@
 .deuce{
     background-color: grey;
 }
+
+
 .game-child{
     white-space: nowrap;
 }
