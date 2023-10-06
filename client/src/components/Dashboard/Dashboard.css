@@ -19,19 +19,28 @@
 
 .game-history{
     border-radius: 10px;
-    display: flex;
     margin-left: 25%;
+    margin-right: 25%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
     /* flex-direction: inline; */
 }
-
+.game{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
 .games{
     width: 200px;
     padding: 20px;
     border: black;
     border-radius: 10px;
+    
 
 }
-
-.game{
-    padding-left: 10px;
+.game-child{
+    width: 50%;
+    float: left;
+    padding: 20px;
 }

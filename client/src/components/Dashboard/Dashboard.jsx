@@ -64,16 +64,14 @@ export default function Dashboard({state, account}) {
                 <div className="games">
                 {playerGames.map((g) => {
                     return (
-                        <div clasName="game">
-                            <div className="game-id">
+                        <div className="game">
+                            <div className="game-child" id="id">
                                 {parseInt(g.id)}
                             </div>
 
-                            <div className="opponent">
+                            <div className="game-child" id="opponent">
                                 Oponent: {g.opponent1 === _account ? g.opponent1 : g.opponent2}
                             </div>
-
-
                         </div>
                     );
                 })}
