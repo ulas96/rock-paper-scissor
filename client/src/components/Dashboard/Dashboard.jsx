@@ -117,40 +117,56 @@ export default function Dashboard({state, account}) {
             </div>
 
             <div className="game-history">
-                <div className="games" id="total-games">
-                {playerGames.map((g) => {
-                    return (
-                        <div className={`game ${parseInt(g.winner) ===  0 ? "deuce" : parseInt(g.winner) === parseInt(_account) ? "win" : "loss"}`}>
-                            <div className="game-child move" >
-                                Your move: {g.opponent1 === _account ? moveConverter(parseInt(g.move1)) : moveConverter(parseInt(g.move2))}
-                            </div>
-
-                            <div className="game-child opponent" >
-                                Opponent: {g.opponent1 === _account ? `${g.opponent1.slice(0,6)}...${g.opponent1.slice(38,42)}` : `${g.opponent2.slice(0,5)}...${g.opponent2.slice(39,42)}`}
-                            </div>
-                            <div className="game-child date">
-                        Date: {new Date(g.timestamp * 1000).getDay() < 10 ? `0${new Date(g.timestamp * 1000).getDay()}` : new Date(g.timestamp * 1000).getDay()}/{new Date(g.timestamp * 1000).getMonth() < 10 ? `0${new Date(g.timestamp * 1000).getMonth()}` : new Date(g.timestamp * 1000).getMonth()}/{new Date(g.timestamp * 1000).getFullYear()} {new Date(g.timestamp * 1000).getHours() < 10 ? `0${new Date(g.timestamp * 1000).getHours()}` : new Date(g.timestamp * 1000).getHours()}:{new Date(g.timestamp * 1000).getMinutes() < 10 ? `0${new Date(g.timestamp * 1000).getMinutes()}` : new Date(g.timestamp * 1000).getMinutes()}
-                            </div>
+                <div className="total-games">
+                    <div className="total-games-legend">
+                        <div>
+                                Your move:
+                        </div>
+                                
+                        <div>
+                                Opponent:
                         </div>
 
-                        
-                    );
-                })}
+                        <div>
+                                Date:
+                        </div>
+                    </div>
+                    <div className="games" id="total-games">
+                    {playerGames.map((g) => {
+                        return (
+                            <div className={`game ${parseInt(g.winner) ===  0 ? "deuce" : parseInt(g.winner) === parseInt(_account) ? "win" : "loss"}`}>
+                                <div className="game-child move" >
+                                    {g.opponent1 === _account ? moveConverter(parseInt(g.move1)) : moveConverter(parseInt(g.move2))}
+                                </div>
+
+                                <div className="game-child opponent" >
+                                    {g.opponent1 === _account ? `${g.opponent1.slice(0,6)}...${g.opponent1.slice(38,42)}` : `${g.opponent2.slice(0,5)}...${g.opponent2.slice(39,42)}`}
+                                </div>
+                                <div className="game-child date">
+                                    {new Date(g.timestamp * 1000).getDay() < 10 ? `0${new Date(g.timestamp * 1000).getDay()}` : new Date(g.timestamp * 1000).getDay()}/{new Date(g.timestamp * 1000).getMonth() < 10 ? `0${new Date(g.timestamp * 1000).getMonth()}` : new Date(g.timestamp * 1000).getMonth()}/{new Date(g.timestamp * 1000).getFullYear()} {new Date(g.timestamp * 1000).getHours() < 10 ? `0${new Date(g.timestamp * 1000).getHours()}` : new Date(g.timestamp * 1000).getHours()}:{new Date(g.timestamp * 1000).getMinutes() < 10 ? `0${new Date(g.timestamp * 1000).getMinutes()}` : new Date(g.timestamp * 1000).getMinutes()}
+                                </div>
+                            </div>
+
+                            
+                        );
+                    })}
+                    </div>
                 </div>
+
+                
 
                 <div className="games" id="pending-games">
                 {playerPendingGames.map((p) => {
                     return (
-                        <div class Name="pending-game" id={parseInt(p.id)}>
+                        <div className="pending-game" id={parseInt(p.id)}>
 
-                            <div id="pending-game-id">
-                                
-                            </div>
 
                             <div className="">
                                 Date: {new Date(p.timestamp * 1000).getDay() < 10 ? `0${new Date(p.timestamp * 1000).getDay()}` : new Date(p.timestamp * 1000).getDay()}/{new Date(p.timestamp * 1000).getMonth() < 10 ? `0${new Date(p.timestamp * 1000).getMonth()}` : new Date(p.timestamp * 1000).getMonth()}/{new Date(p.timestamp * 1000).getFullYear()} {new Date(p.timestamp * 1000).getHours() < 10 ? `0${new Date(p.timestamp * 1000).getHours()}` : new Date(p.timestamp * 1000).getHours()}:{new Date(p.timestamp * 1000).getMinutes() < 10 ? `0${new Date(p.timestamp * 1000).getMinutes()}` : new Date(p.timestamp * 1000).getMinutes()}
                             </div>
                             
+
+                            <div className="cancel-game">X</div>
                         </div>
                     );
                 })}
