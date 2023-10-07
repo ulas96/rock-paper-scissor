@@ -152,7 +152,7 @@ contract RPS {
         uint256 pendingGameCount = 0;
 
         for (uint256 i = 0; i <= totalPendingGameCount; i++) {
-            if (pendingGames[i].gameCreator == adr) {
+            if (pendingGames[i].active == true && pendingGames[i].gameCreator == adr) {
                 pendingGameCount++;
             }
         }
@@ -161,7 +161,7 @@ contract RPS {
         pendingGameCount = 0;
 
         for (uint256 i = 0; i <= totalPendingGameCount; i++) {
-            if (pendingGames[i].gameCreator == msg.sender) {
+            if (pendingGames[i].active == true && pendingGames[i].gameCreator == adr) {
                 PendingGames[pendingGameCount] = pendingGames[i];
                 pendingGameCount++;
             }
