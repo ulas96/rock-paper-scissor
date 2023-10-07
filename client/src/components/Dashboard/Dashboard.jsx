@@ -42,6 +42,7 @@ export default function Dashboard({state, account}) {
 
     const getPlayerGames = async () => {
         const games = await state.contract.getPlayerGames(_account);
+        console.log(games)
         setPlayerGames(games);
         getPlayerWins();
         getPlayerLosses();
@@ -71,7 +72,7 @@ export default function Dashboard({state, account}) {
     useEffect(() => {
         getPlayerGames();
         getPlayerPendingGames();
-        console.log(playerGames)
+
     });
 
     return (
