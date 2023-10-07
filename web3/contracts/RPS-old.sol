@@ -184,6 +184,80 @@ contract RPS {
         claimedReward = claimedRewards[adr];
     }
 
+    function getPlayerWins(address adr)
+        public
+        view
+        returns (Game[] memory wins)
+    {
+        Game[] memory Games = getPlayerGames(adr);
+        uint256 winCount = 0;
+
+        for (uint256 i = 0; i < Games.length; i++) {
+            if (Games[i].winner == adr) {
+                winCount++;
+            }
+        }
+
+        wins = new Game[](winCount);
+        winCount = 0;
+
+        for (uint256 i = 0; i < Games.length; i++) {
+            if (Games[i].winner == msg.sender) {
+                wins[winCount] = Games[i];
+                winCount++;
+            }
+        }
+    }
+
+    function getPlayerDeuces(address adr)
+        public
+        view
+        returns (Game[] memory deuces)
+    {
+        Game[] memory Games = getPlayerGames(adr);
+        uint256 deuceCount = 0;
+
+        for (uint256 i = 0; i < Games.length; i++) {
+            if (Games[i].winner == address(0)) {
+                deuceCount++;
+            }
+        }
+
+        deuces = new Game[](deuceCount);
+        deuceCount = 0;
+
+        for (uint256 i = 0; i < Games.length; i++) {
+            if (Games[i].winner == address(0)) {
+                deuces[deuceCount] = Games[i];
+                deuceCount++;
+            }
+        }
+    }
+
+    function getPlayerLoses(address adr)
+        public
+        view
+        returns (Game[] memory looses)
+    {
+        Game[] memory Games = getPlayerGames(adr);
+        uint256 looseCount = 0;
+
+        for (uint256 i = 0; i < Games.length; i++) {
+            if (Games[i].winner != address(0) && Games[i].winner != adr) {
+                looseCount++;
+            }
+        }
+
+        looses = new Game[](looseCount);
+        looseCount = 0;
+
+        for (uint256 i = 0; i < Games.length; i++) {
+            if (Games[i].winner != address(0) && Games[i].winner == adr) {
+                looses[looseCount] = Games[i];
+                looseCount++;
+            }
+        }
+    }
 
     //0: rock, 1: paper, 2: scissor
     function gameResult(uint256 move1, uint256 move2)
@@ -232,7 +306,7 @@ contract RPS {
         if (result == 0) {
             claimableRewards[pendingGames[id].gameCreator] += amount;
             claimableRewards[msg.sender] += amount;
-            winner = address(0);
+            winner = address(0x0000000000000000000000000000000000000000);
         } else if (result == 1) {
             claimableRewards[pendingGames[id].gameCreator] +=
                 (amount * 19) /

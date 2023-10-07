@@ -10,24 +10,42 @@ export default function Dashboard({state, account}) {
     const [playerGames, setPlayerGames] = useState([]);
     const [playerPendingGames, setPlayerPendingGames] = useState([]);
 
-    const getPlayerWins = async () => {
-        const _wins = await state.contract.getPlayerWins(_account);
+    const getPlayerWins = () => {
+        let _wins = [];
+        for(let i = 0; i < playerGames.length; i++) {
+            if(parseInt(playerGames[i].winner) === parseInt(_account)) {
+                _wins.push(playerGames[i]);
+            }
+        }
         setWins(_wins);
     } 
-
+    
     const getPlayerLosses = async () => {
-        const _losses = await state.contract.getPlayerLoses(_account);
+        let _losses = [];
+        for(let i = 0; i < playerGames.length; i++) {
+            if(parseInt(playerGames[i].winner) !== 0 && parseInt(playerGames[i].winner) !== parseInt(_account)) {
+                _losses.push(playerGames[i]);
+            }
+        }
         setLosses(_losses);
     }
-
+    
     const getPlayerDeuces = async () => {
-        const deuces =  await state.contract.getPlayerDeuces(_account);
-        setDeuces(deuces);
+        let _deuces = [];
+        for(let i = 0; i < playerGames.length; i++) {
+            if(parseInt(playerGames[i].winner) === 0) {
+                _deuces.push(playerGames[i]);
+            }
+        }
+        setDeuces(_deuces);
     }
 
     const getPlayerGames = async () => {
         const games = await state.contract.getPlayerGames(_account);
         setPlayerGames(games);
+        getPlayerWins();
+        getPlayerLosses();
+        getPlayerDeuces();
     }
 
     const getPlayerPendingGames = async () => {
@@ -51,11 +69,9 @@ export default function Dashboard({state, account}) {
     }
 
     useEffect(() => {
-        getPlayerWins();
-        getPlayerLosses();
-        getPlayerDeuces();
         getPlayerGames();
         getPlayerPendingGames();
+        console.log(playerGames)
     });
 
     return (
@@ -124,7 +140,7 @@ export default function Dashboard({state, account}) {
                 <div className="games" id="pending-games">
                 {playerPendingGames.map((p) => {
                     return (
-                        <div class  Name="pending-game" id={parseInt(p.id)}>
+                        <div class Name="pending-game" id={parseInt(p.id)}>
 
                             <div id="pending-game-id">
                                 
