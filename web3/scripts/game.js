@@ -1,7 +1,7 @@
 // We require the Hardhat Runtime Environment explicitly here. This is optional
 // but useful for running the script in a standalone fashion through `node <script>`.
 //
-const gameAddr = "0xCc80273F73fE16958B5FE3BEC4333C6Ed52A6555";
+const gameAddr = "0xAa84c17C94E8242122200f2532725bC45b572694";
 const contractName = "RPS";
 
 async function main() {
