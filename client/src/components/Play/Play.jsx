@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Play.css";
+import rock from "/Users/ulas/Documents/GitHub/rock-paper-scissor/client/src/assets/paper.png"
+import paper from "/Users/ulas/Documents/GitHub/rock-paper-scissor/client/src/assets/rock.png"
+import scissor from "/Users/ulas/Documents/GitHub/rock-paper-scissor/client/src/assets/scissor.png"
 
 export default function Play({ state }) {
 
@@ -65,19 +68,19 @@ export default function Play({ state }) {
           </p>
           <div className="move-image-div">
             <img
-              src="../src/assets/rock.png"
+              src={rock}
               className="move-img"
               id="rock"
               onClick={handleMoveChange}
             />
             <img 
-              src="../src/assets/paper.png"
+              src={paper}
               className="move-img"
               id="paper"
               onClick={handleMoveChange}
             />
             <img
-              src="../src/assets/scissor.png"
+              src={scissor}
               className="move-img"
               id="scissor"
               onClick={handleMoveChange}

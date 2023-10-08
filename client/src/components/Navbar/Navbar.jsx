@@ -1,9 +1,5 @@
 import {useState} from "react";
 import "./Navbar.css";
-
-
-
-
 export function Navbar({account}) {
 
     return <>
