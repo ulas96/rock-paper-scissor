@@ -1,53 +1,18 @@
-#account {
-    position: absolute;
-    top: 2px;
-    right: 15px;
-    width: 130px;
-    height: 30px;
-    border: 1px solid white;
-    border-radius: 20px;
-    background-color: #1f1c26;/*previous: 1d1a24*/
-  } 
-  
-  #green-circle {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background-color: #15fc00;
-    }
-  
-    #gray-circle {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background-color: gray;
-      }
-  
-    #status-check {
-      position: absolute;
-      top: 10px;
-      bottom: 10px;
-      right: 110px;
-    }
-  
-    #account-address{
-      position: absolute;
-      right: 17px;
-    }
-  
 
 /* Navbar.css */
 
 .navbar{
-    position: relative;
-    flex-direction: column; /* Stack components vertically */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
   }
   
-  /* Style the navigation links */
+
   ul {
     list-style: none;
     padding: 0;
-    display: flex; /* Display links horizontally using flexbox */
+    display: flex;
   }
   
   li {
@@ -73,8 +38,54 @@
   
 
   
-  .navbar-text ul li a {
-    pointer-events: onClick;
-    text-decoration: none;
-    color: white;
+
+  .network{
+    position: relative;
+    left: 19%;
+    width: 9%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid white;
+    height: 30px;
+    font-size: 15px;
+    background-color: #1f1c26;
   }
+
+  .account {
+    position: relative;
+    width: 130px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: #1f1c26;/* previous: 1d1a24 */
+    margin-left: 20px; /* Add margin to create a gap */
+  } 
+  
+  #green-circle {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #15fc00;
+    }
+  
+    #gray-circle {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: gray;
+      }
+  
+    #status-check {
+      position: absolute;
+      top: 11px;
+      bottom: 10px;
+      right: 110px;
+    }
+  
+    #account-address{
+      position: absolute;
+      top: 1px;
+      right: 17px;
+    }

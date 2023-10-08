@@ -33,13 +33,17 @@ export function Navbar({account}) {
                 </ul>
         </div>
 
+        <div className="network">
+            Goerli Testnet
+        </div>
 
-        <div id="account" > 
+
+        <div className="account" > 
                     <div id="status-check">
                         {account !== "None" ? <div id="green-circle"></div> : <div id="gray-circle"> </div> }
                     </div>
                     <div id="account-address">
-                        <small>{String(account).slice(0,5)}...{String(account).slice(39,42)}</small>
+                        <small>{account !== "None" ? `${String(account).slice(0,5)}...${String(account).slice(39,42)}` : "Connect Walet"}</small>
             </div>
         </div>
     </div>
