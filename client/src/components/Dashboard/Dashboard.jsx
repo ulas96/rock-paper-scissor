@@ -54,10 +54,10 @@ export default function Dashboard({state, account}) {
         setPlayerPendingGames(pendingGames);
     }
 
-    // const hanedleCancelGame = async (e) => {
-    //     const game = await state.contract.cancelGame(e.id);
-    //     game.wait();
-    // }
+    const hanedleCancelGame = async (e) => {
+        const game = await state.contract.cancelGame(e.target.id);
+        game.wait();
+    }
 
     const moveConverter = (_move) => {
         if(_move === 0) {
@@ -120,15 +120,15 @@ export default function Dashboard({state, account}) {
                 <div className="total-games">
                     <div className="total-games-legend">
                         <div>
-                                Your move:
+                                Your move
                         </div>
                                 
                         <div>
-                                Opponent:
+                                Opponent
                         </div>
 
                         <div>
-                                Date:
+                                Date
                         </div>
                     </div>
                     <div className="games" id="total-games">
@@ -154,23 +154,35 @@ export default function Dashboard({state, account}) {
                 </div>
 
                 
-
-                <div className="games" id="pending-games">
-                {playerPendingGames.map((p) => {
-                    return (
-                        <div className="pending-game" id={parseInt(p.id)}>
-
-
-                            <div className="">
-                                Date: {new Date(p.timestamp * 1000).getDay() < 10 ? `0${new Date(p.timestamp * 1000).getDay()}` : new Date(p.timestamp * 1000).getDay()}/{new Date(p.timestamp * 1000).getMonth() < 10 ? `0${new Date(p.timestamp * 1000).getMonth()}` : new Date(p.timestamp * 1000).getMonth()}/{new Date(p.timestamp * 1000).getFullYear()} {new Date(p.timestamp * 1000).getHours() < 10 ? `0${new Date(p.timestamp * 1000).getHours()}` : new Date(p.timestamp * 1000).getHours()}:{new Date(p.timestamp * 1000).getMinutes() < 10 ? `0${new Date(p.timestamp * 1000).getMinutes()}` : new Date(p.timestamp * 1000).getMinutes()}
-                            </div>
-                            
-
-                            <div className="cancel-game">X</div>
+                <div className="pending-games">
+                    <div className="pending-games-legend">
+                        <div>
+                                Date
                         </div>
-                    );
-                })}
-                </div> 
+
+                        <div>
+                                Cancel
+                        </div>    
+                    </div>
+
+                    <div className="games" id="pending-games">
+                    {playerPendingGames.map((p) => {
+                        return (
+                            <div className="pending-game" >
+
+
+                                <div className="">
+                                    Date: {new Date(p.timestamp * 1000).getDay() < 10 ? `0${new Date(p.timestamp * 1000).getDay()}` : new Date(p.timestamp * 1000).getDay()}/{new Date(p.timestamp * 1000).getMonth() < 10 ? `0${new Date(p.timestamp * 1000).getMonth()}` : new Date(p.timestamp * 1000).getMonth()}/{new Date(p.timestamp * 1000).getFullYear()} {new Date(p.timestamp * 1000).getHours() < 10 ? `0${new Date(p.timestamp * 1000).getHours()}` : new Date(p.timestamp * 1000).getHours()}:{new Date(p.timestamp * 1000).getMinutes() < 10 ? `0${new Date(p.timestamp * 1000).getMinutes()}` : new Date(p.timestamp * 1000).getMinutes()}
+                                </div>
+                                
+
+                                <div className="cancel-game" id={parseInt(p.id)} onClick={hanedleCancelGame}>X</div>
+                            </div>
+                        );
+                    })}
+                    </div> 
+                </div>
+
             </div>
 
         </div>

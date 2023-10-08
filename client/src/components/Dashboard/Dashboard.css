@@ -81,18 +81,23 @@
 }
 
 
-
+.pending-games{
+    position: relative;
+    bottom: 5px;
+}
 .pending-game{
     width: 250%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     border-radius: 10px;
     margin-bottom: 1px;
-    background-color: #53427a;
-
+    background-color: #53427a;                                                                                                                                                                                                                                                                                                                            
 }
 
-
+.pending-games-legend{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
 .game-child{
     display: grid;
@@ -101,5 +106,21 @@
 
 
 .cancel-game{
-    padding-left: 60%;
+    font-size: small;
+    position: relative;
+    left: 48%;
+    top: 4px;
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #cd3d3d;
+    opacity: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cancel-game:hover{
+    opacity: 1;
 }
