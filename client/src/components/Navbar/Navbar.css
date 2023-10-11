@@ -41,8 +41,8 @@
 
   .network{
     position: relative;
-    left: 19%;
-    width: 9%;
+    left: 250px;
+    width: 9%; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,29 +63,44 @@
     margin-left: 20px; /* Add margin to create a gap */
   } 
   
-  #green-circle {
+.green-circle {
     width: 7px;
     height: 7px;
     border-radius: 50%;
     background-color: #15fc00;
     }
   
-    #gray-circle {
+  .gray-circle {
       width: 7px;
       height: 7px;
       border-radius: 50%;
       background-color: gray;
       }
   
-    #status-check {
+    .status-check {
       position: absolute;
       top: 11px;
       bottom: 10px;
       right: 110px;
     }
   
-    #account-address{
+    .account-address{
       position: absolute;
       top: 1px;
       right: 17px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .navbar {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: flex-start; /* Adjust alignment for better mobile layout */
+      }
+    
+      ul {
+        flex-direction: column; /* Stack menu items vertically on small screens */
+      }
+    
+      li {
+        margin: 10px 0; /* Add vertical margin to separate menu items */
+      }
     }

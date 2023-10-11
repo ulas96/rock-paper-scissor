@@ -38,7 +38,7 @@ export default function Claim({state, account}) {
                 
                 <p className="claim-text">Enter amount:</p>
 
-                <div id="claim-value">
+                <div className="claim-value">
                     <input value={claimAmount} onChange={handleChange}/>
                     <p  className="currency">gETH</p>
                     <p className="max" onClick={getAllowClaim}>MAX</p>

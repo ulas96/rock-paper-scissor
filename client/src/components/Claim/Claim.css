@@ -15,7 +15,7 @@
 
 
 
-#claim-value {
+.claim-value {
 display: flex;
 align-items: row;
 justify-content: center;
@@ -59,4 +59,10 @@ input:focus {
     background-color: #4d228e;
     font-weight: bold;
 
+}
+
+@media screen {
+    
+
+    
 }

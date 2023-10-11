@@ -35,10 +35,10 @@ export function Navbar({account}) {
 
 
         <div className="account" > 
-                    <div id="status-check">
-                        {account !== "None" ? <div id="green-circle"></div> : <div id="gray-circle"> </div> }
+                    <div className="status-check">
+                        {account !== "None" ? <div className="green-circle"></div> : <div className="gray-circle"> </div> }
                     </div>
-                    <div id="account-address">
+                    <div className="account-address">
                         <small>{account !== "None" ? `${String(account).slice(0,5)}...${String(account).slice(39,42)}` : "Connect Walet"}</small>
             </div>
         </div>
