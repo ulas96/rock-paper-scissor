@@ -33,18 +33,18 @@ export default function Claim({state, account}) {
 
 
     return (
-        <div id="claim-container">
-            <div id="claim">
+        <div className="claim-container">
+            <div className="claim">
                 
-                <p id="claim-text">Enter amount:</p>
+                <p className="claim-text">Enter amount:</p>
 
                 <div id="claim-value">
                     <input value={claimAmount} onChange={handleChange}/>
-                    <p  id="currency">gETH</p>
-                    <p id="max" onClick={getAllowClaim}>MAX</p>
+                    <p  className="currency">gETH</p>
+                    <p className="max" onClick={getAllowClaim}>MAX</p>
                 </div>
-                <p id="claimed-rewards">{`Previously claimed rewards: ${claimedRewards ? claimedRewards : 0}`}</p>
-                <button id="claim-button" onClick={claimRewards}>Claim</button>
+                <p className="claimed-rewards">{`Previously claimed rewards: ${claimedRewards ? claimedRewards : 0}`}</p>
+                <button className="claim-button" onClick={claimRewards}>Claim</button>
             </div>
         </div>
     );

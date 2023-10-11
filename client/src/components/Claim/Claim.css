@@ -1,9 +1,9 @@
-#claim-container {
+.claim-container {
     display: flex;
     justify-content: center;
 }
 
-#claim {
+.claim {
     margin-top: 250px;
     width: 400px;
     height: 225px;
@@ -31,28 +31,28 @@ input{
 input:focus {
     outline: none;
 }
-#max {
+.max {
     padding-left: 30px;
 }
-#max:hover{
+.max:hover{
     cursor: pointer;
 }
 
-#claimed-rewards {
+.claimed-rewards {
     opacity: 0.5;
 }
 
-#currency{
+.currency{
     padding-top: 2px;
     font-size: 15px;
     opacity: 0.5;
 }
 
-#claim-text{
+.claim-text{
     opacity: 0.5;
 }
 
-#claim-button{
+.claim-button{
 
     border: none;
     border-radius: 10px;
