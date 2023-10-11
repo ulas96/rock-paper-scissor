@@ -41,7 +41,7 @@
     0 0 2.8rem #a7a6d5,
     inset 0 0 1.3rem #a7a6d5; 
   }
-  #create-button {
+  .create-button {
     border-radius: 10px;
     margin-top: 100px;
     margin-bottom: 60px;
@@ -56,19 +56,17 @@
   }
   
   
-    #move-text{
+  .move-text{
       margin-top: 100px;
     }
   
-    #move-selection {
+  .move-selection {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
     }
-  #moves{
-    margin-top: 100px;
-  }
+
 
   .pending-game-element {
     display: flex;

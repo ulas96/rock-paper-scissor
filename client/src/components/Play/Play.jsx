@@ -61,8 +61,8 @@ export default function Play({ state }) {
     <div>
 
       <div className="play-container">
-        <div id="move-selection">
-          <p id="move-text">
+        <div className="move-selection">
+          <p className="move-text">
             You can make your move for creating and joining game both by
             clicking to desired hands below.
           </p>
@@ -88,7 +88,7 @@ export default function Play({ state }) {
           </div>
         </div>
 
-        <div id="create-button">
+        <div className="create-button">
           <button className="button" onClick={handleCreateGame}>Create Game</button>
         </div>
 
