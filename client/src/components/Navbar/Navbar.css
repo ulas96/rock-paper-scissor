@@ -91,16 +91,8 @@
     }
 
     @media screen and (max-width: 768px) {
-      .navbar {
-        flex-direction: column; /* Stack items vertically on small screens */
-        align-items: flex-start; /* Adjust alignment for better mobile layout */
-      }
-    
-      ul {
-        flex-direction: column; /* Stack menu items vertically on small screens */
-      }
-    
-      li {
-        margin: 10px 0; /* Add vertical margin to separate menu items */
+  
+      .network {
+        width: 100px;
       }
     }
