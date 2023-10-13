@@ -100,7 +100,7 @@ export default function Play({ state }) {
             {pendingGames.map((g) => {
               return (
                 <div className="pending-game-element">
-                  <div className="game-creator" >{g.gameCreator}</div>
+                  <div className="game-creator" >Game Creator: {g.gameCreator.slice(0,4)}...{g.gameCreator.slice(37,40)}</div>
                   <button className="button" id="join-button" value={parseInt(g.id)} onClick={handleJoinGame}>
                     join game
                   </button>

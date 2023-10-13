@@ -96,4 +96,8 @@
   .move-img{
     width: 100px;
   }
+
+  .pending-game-element{
+    display: absolute;
+  }
 }
