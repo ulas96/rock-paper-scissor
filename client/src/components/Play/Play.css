@@ -91,3 +91,9 @@
   align-items: center;
   max-width: 380px;
 }
+
+@media screen and (max-width: 768px) {
+  .move-img{
+    width: 100px;
+  }
+}
