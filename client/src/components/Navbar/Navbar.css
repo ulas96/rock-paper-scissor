@@ -22,7 +22,7 @@
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 30px;
-    margin-right: 40px; /* Add margin to separate each link */
+    margin-right: 40px;   
     
   }
 
@@ -60,7 +60,7 @@
     border: 1px solid white;
     border-radius: 20px;
     background-color: #1f1c26;/* previous: 1d1a24 */
-    margin-left: 20px; /* Add margin to create a gap */
+    margin-left: 20px; 
   } 
   
 .green-circle {
@@ -92,7 +92,8 @@
 
     @media screen and (max-width: 768px) {
       .account{
-        position: relative;
+        position: contain;
+        width: 100px;
       }
 
       .network {
