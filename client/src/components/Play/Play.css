@@ -100,4 +100,12 @@
   .pending-game-element{
     display: absolute;
   }
+
+  #join-button {
+    justify-content: contain;
+    position: relative;
+    right: 10px;
+    top: 1px
+
+  }
 }
