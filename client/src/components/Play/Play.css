@@ -70,6 +70,8 @@
 
   .pending-game-element {
     display: flex;
+    align-items: center;
+    justify-content: center;
     margin-left: 30%;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -81,7 +83,7 @@
     border-radius: 10px;
   }
 #join-button {
-  margin-left: 5%;
+  margin-left: 50px;
   bottom: 5px;
   padding-bottom: 10px;
 }
