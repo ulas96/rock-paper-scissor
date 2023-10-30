@@ -38,8 +38,8 @@ export default function Play({ state }) {
   };
 
   const getPendingGames = async () => {
-    const _pendingGames = await state.contract.getActivePendingGames();
-    setPendingGames(_pendingGames);
+    const _pendingGames = await state.contract.getPendingGames();
+    setPendingGames(_pendingGames.filter((g) => g.active === true));
   };
 
   const handleJoinGame = async (e) => {
@@ -48,7 +48,7 @@ export default function Play({ state }) {
       _move = 0;
     } else if (move === "paper") {
       _move = 1;
-    } else if (move == "scissor") {
+    } else if (move === "scissor") {
       _move = 2;
     }
     const game = await state.contract.joinGame(e.target.value, _move, {
