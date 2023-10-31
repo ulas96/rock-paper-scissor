@@ -4,55 +4,43 @@ import "./Dashboard.css"
 export default function Dashboard({state, account}) {
 
     const [_account] = account
-    const [wins, setWins] = useState([]);
-    const [losses,setLosses] = useState([]);
-    const [deuces, setDeuces] = useState([]);
-    const [playerGames, setPlayerGames] = useState([]);
-    const [playerPendingGames, setPlayerPendingGames] = useState([]);
+    const [games, setGames] = useState([]);
+    const [pendingGames, setPendingGames] = useState([]);
+    const [wins, setWins] = useState(0);
+    const [losses, setLosses] = useState(0);
+    const [deuces, setDeuces] = useState(0);
 
-    const getPlayerWins = () => {
-        let _wins = [];
-        for(let i = 0; i < playerGames.length; i++) {
-            if(parseInt(playerGames[i].winner) === parseInt(_account)) {
-                _wins.push(playerGames[i]);
-            }
-        }
-        setWins(_wins);
-    } 
-    
-    const getPlayerLosses = async () => {
-        let _losses = [];
-        for(let i = 0; i < playerGames.length; i++) {
-            if(parseInt(playerGames[i].winner) !== 0 && parseInt(playerGames[i].winner) !== parseInt(_account)) {
-                _losses.push(playerGames[i]);
-            }
-        }
-        setLosses(_losses);
-    }
-    
-    const getPlayerDeuces = async () => {
-        let _deuces = [];
-        for(let i = 0; i < playerGames.length; i++) {
-            if(parseInt(playerGames[i].winner) === 0) {
-                _deuces.push(playerGames[i]);
-            }
-        }
-        setDeuces(_deuces);
-    }
 
     const getPlayerGames = async () => {
-        const games = await state.contract.getPlayerGames(_account);
-        console.log(games)
-        setPlayerGames(games);
-        getPlayerWins();
-        getPlayerLosses();
-        getPlayerDeuces();
+        const _games = await state.contract.getGames();
+        let playerGames = [];
+        let _wins = [];
+        let _loses = [];
+        let _deuces = [];
+        for(let i = 0; i < _games.length; i++) {
+            if(parseInt(_games[i].opponent1) === parseInt(_account) || parseInt(_games[i].opponent2) === parseInt(_account)) {
+                playerGames.push(_games[i]);
+                if (parseInt(_games[i].winner) === 0) {
+                    _deuces.push(_games[i]);
+                } else if(parseInt(_games[i].winner) === parseInt(_account)) {
+                    _wins.push(_games[i]);
+                } else if (parseInt(_games[i].winner) !== parseInt(_account)) {
+                    _loses.push(_games[i]);
+                }
+            }
+        }
+
+        setGames(playerGames);
+        setWins(_wins.length);
+        setLosses(_loses.length);
+        setDeuces(_deuces.length);
     }
 
-    const getPlayerPendingGames = async () => {
-        const pendingGames = await state.contract.getPlayerPendingGames(_account);
-        setPlayerPendingGames(pendingGames);
+    const getPendingGames = async () => {
+        const _pendingGames = await state.contract.getPendingGames();
+        setPendingGames(_pendingGames.filter((g) => parseInt(g.gameCreator) === parseInt(_account) && g.active === true));
     }
+
 
     const hanedleCancelGame = async (e) => {
         const game = await state.contract.cancelGame(e.target.id);
@@ -71,8 +59,7 @@ export default function Dashboard({state, account}) {
 
     useEffect(() => {
         getPlayerGames();
-        getPlayerPendingGames();
-
+        getPendingGames();
     });
 
     return (
@@ -81,7 +68,7 @@ export default function Dashboard({state, account}) {
             <div className="summary">
                 <div className="summary-info">
                     <p>Total games:</p>
-                    <p>{playerGames.length}</p>
+                    <p>{games.length}</p>
                 </div>
 
                 <div className="vertical-line">
@@ -90,7 +77,7 @@ export default function Dashboard({state, account}) {
 
                 <div className="summary-info">
                     <p>Wins:</p>
-                    <p>{wins.length}</p>
+                    <p>{wins}</p>
                 </div>
                 
                 <div className="vertical-line">
@@ -99,7 +86,7 @@ export default function Dashboard({state, account}) {
 
                 <div className="summary-info">
                 <p>Losses:</p>
-                    <p>{losses.length}</p>
+                    <p>{losses}</p>
                 </div>
 
                 <div className="vertical-line">
@@ -108,7 +95,7 @@ export default function Dashboard({state, account}) {
 
                 <div className="summary-info">
                 <p>Deuces:</p>
-                    <p>{deuces.length}</p>
+                    <p>{deuces}</p>
                 </div>
                 
                 
@@ -134,7 +121,7 @@ export default function Dashboard({state, account}) {
                         </div>
                     </div>
                     <div className="games" id="total-games">
-                    {playerGames.map((g) => {
+                    {games.map((g) => {
                         return (
                             <div className={`game ${parseInt(g.winner) ===  0 ? "deuce" : parseInt(g.winner) === parseInt(_account) ? "win" : "loss"}`}>
                                 <div className="game-child move" >
@@ -169,7 +156,7 @@ export default function Dashboard({state, account}) {
                     </div>
 
                     <div className="games" id="pending-games">
-                    {playerPendingGames.map((p) => {
+                    {pendingGames.map((p) => {
                         return (
                             <div className="pending-game" >
 
