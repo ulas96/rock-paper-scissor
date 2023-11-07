@@ -7,12 +7,13 @@
 const hre = require("hardhat");
 
 async function main() {
-  const Game = await hre.ethers.getContractFactory("RPS");
-  const game = await Game.deploy(10, { value: 10 });
-  await game.waitForDeployment();
+  const RPS = await hre.ethers.getContractFactory("RPS");
+  const rps = await RPS.deploy(10);
+  await rps.waitForDeployment();
 
-  console.log(game.target);
+  console.log(rps.target);
 }
+
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
