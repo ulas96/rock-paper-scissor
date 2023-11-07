@@ -22,8 +22,8 @@ export default function Play({ state }) {
     getPendingGames();
   });
 
-  const approve = async (amount) => {
-    const approved = await tokenContract.approve(gameAddress, amount);
+  const approve = async () => {
+    const approved = await tokenContract.approve(gameAddress, 10);
     await approved.wait();
     setIsApproved(true);
   }
@@ -104,7 +104,7 @@ export default function Play({ state }) {
         </div>
 
         <div className="create-button">
-          <button className="button" onClick={handleCreateGame}>Create Game</button>
+          {isApproved === false ? <button className="button" onClick={approve}></button> : <button className="button" onClick={handleCreateGame}>Create Game</button>}
         </div>
 
         <div className="pending-games-container">
@@ -116,9 +116,9 @@ export default function Play({ state }) {
               return (
                 <div className="pending-game-element">
                   <div className="game-creator" >Game Creator: {g.gameCreator.slice(0,4)}...{g.gameCreator.slice(39,42)}</div>
-                  <button className="button" id="join-button" value={parseInt(g.id)} onClick={handleJoinGame}>
-                    join game
-                  </button>
+                  <div className="join-button">
+                    {isApproved === false ? <button className="button" onClick={approve}></button> : <button className="button" id="join-button" value={parseInt(g.id)} onClick={handleJoinGame}> Join Game </button>}
+                  </div>
                 </div>
               );
             })}
