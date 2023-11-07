@@ -11,6 +11,7 @@ export default function Play({ state }) {
   const { abi : ABI } = contract;
   const tokenABI = ABI;
   const tokenAddress = "0x9e6969254D73Eda498375B079D8bE540FB42fea7";
+  const gameAddress = "0x3853B8fc287C90970ca5fa9d6A7599422C4BAF48";
   const tokenContract = new ethers.Contract(tokenAddress, tokenABI, state.signer);
 
   const [move,setMove] = useState("");
@@ -19,7 +20,13 @@ export default function Play({ state }) {
 
   useEffect(() =>{
     getPendingGames();
-  })
+  });
+
+  const approve = async (amount) => {
+    const approved = await tokenContract.approve(gameAddress, amount);
+    await approved.wait();
+    setIsApproved(true);
+  }
   const handleCreateGame = async () => {
     let _move;
     if (move === "rock") {
