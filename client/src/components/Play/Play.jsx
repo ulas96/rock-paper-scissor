@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
+import { ethers } from "ethers";
 import "./Play.css";
-import rock from "/Users/ulas/Documents/GitHub/rock-paper-scissor/client/src/assets/paper.png"
-import paper from "/Users/ulas/Documents/GitHub/rock-paper-scissor/client/src/assets/rock.png"
-import scissor from "/Users/ulas/Documents/GitHub/rock-paper-scissor/client/src/assets/scissor.png"
+import rock from "/Users/ulas/Documents/GitHub/rock-paper-scissor/client/src/assets/paper.png";
+import paper from "/Users/ulas/Documents/GitHub/rock-paper-scissor/client/src/assets/rock.png";
+import scissor from "/Users/ulas/Documents/GitHub/rock-paper-scissor/client/src/assets/scissor.png";
+import contract from "/Users/ulas/Documents/GitHub/rock-paper-scissor/client/src/contract/Excelcium.json";
 
 export default function Play({ state }) {
 
+  const { abi : ABI } = contract;
+  const tokenABI = ABI;
+  const tokenAddress = "0x9e6969254D73Eda498375B079D8bE540FB42fea7";
+  const tokenContract = new ethers.Contract(tokenAddress, tokenABI, state.signer);
+
   const [move,setMove] = useState("");
   const [pendingGames, setPendingGames] = useState([]);
+  const [isApproved, setIsApproved] = useState(false);
 
   useEffect(() =>{
     getPendingGames();
