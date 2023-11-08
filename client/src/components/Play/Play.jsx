@@ -36,7 +36,7 @@ export default function Play({ state }) {
     } else if (move === "scissor") {
       _move = 2;
     }
-    const pendingGame = await state.contract.createGame(_move, { value: 10 });
+    const pendingGame = await state.contract.createGame(_move, 10);
     pendingGame.wait();
     //console.log(pendingGame);
   };
@@ -104,7 +104,7 @@ export default function Play({ state }) {
         </div>
 
         <div className="create-button">
-          {isApproved === false ? <button className="button" onClick={approve}></button> : <button className="button" onClick={handleCreateGame}>Create Game</button>}
+          {isApproved === false ? <button className="button" onClick={approve}>Approve</button> : <button className="button" onClick={handleCreateGame}>Create Game</button>}
         </div>
 
         <div className="pending-games-container">
@@ -117,7 +117,7 @@ export default function Play({ state }) {
                 <div className="pending-game-element">
                   <div className="game-creator" >Game Creator: {g.gameCreator.slice(0,4)}...{g.gameCreator.slice(39,42)}</div>
                   <div className="join-button">
-                    {isApproved === false ? <button className="button" onClick={approve}></button> : <button className="button" id="join-button" value={parseInt(g.id)} onClick={handleJoinGame}> Join Game </button>}
+                    {isApproved === false ? <button className="button" onClick={approve}>Approve</button> : <button className="button" id="join-button" value={parseInt(g.id)} onClick={handleJoinGame}> Join Game </button>}
                   </div>
                 </div>
               );
