@@ -30,7 +30,7 @@ export function Navbar({account}) {
         </div>
 
         <div className="network">
-            Goerli Testnet
+            Sepolia Testnet
         </div>
 
 
