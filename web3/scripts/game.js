@@ -4,7 +4,7 @@
 
 const hre = require("hardhat");
 
-const gameAddr = "0x3853B8fc287C90970ca5fa9d6A7599422C4BAF48"; // previous: "0x811DAfdc01C05277e70f887Eb499AB2f4Ba9501a"
+const gameAddr = "0x6e0E489F411efCC81dC74DD43daA8acA0Db8307C"; // previous: "0x3853B8fc287C90970ca5fa9d6A7599422C4BAF48"
 const gameName = "RPS";
 
 const tokenAddr = "0x9e6969254D73Eda498375B079D8bE540FB42fea7"; // previous: "0x696653050c71C252254696D154E0318D06376AB3"

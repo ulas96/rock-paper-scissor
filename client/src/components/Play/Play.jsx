@@ -11,7 +11,7 @@ export default function Play({ state }) {
   const { abi : ABI } = contract;
   const tokenABI = ABI;
   const tokenAddress = "0x9e6969254D73Eda498375B079D8bE540FB42fea7";
-  const gameAddress = "0x3853B8fc287C90970ca5fa9d6A7599422C4BAF48";
+  const gameAddress = "0x6e0E489F411efCC81dC74DD43daA8acA0Db8307C";
   const tokenContract = new ethers.Contract(tokenAddress, tokenABI, state.signer);
 
   const [move,setMove] = useState("");
@@ -66,9 +66,7 @@ export default function Play({ state }) {
     } else if (move === "scissor") {
       _move = 2;
     }
-    const game = await state.contract.joinGame(e.target.value, _move, {
-      value: 10,
-    });
+    const game = await state.contract.joinGame(e.target.value, _move, 10);
     await game.wait();
   };
 

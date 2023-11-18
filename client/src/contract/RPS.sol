@@ -79,6 +79,22 @@ contract RPS {
         _pendingGames = pendingGames;
     }
 
+    function getClaimableRewards(address adr)
+    public
+    view
+    returns (uint256 reward)
+    {
+        reward = claimableRewards[adr];
+    }
+
+    function getClaimedRewards(address adr)
+    public
+    view
+    returns (uint256 claimedReward)
+    {
+        claimedReward = claimedRewards[adr];
+    }
+
     function addGame(
         address opt1,
         uint256 move1,

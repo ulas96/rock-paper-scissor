@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/ulas/Documents/GitHub/rock-paper-scissor/web3/contracts/RPS.sol": {
-      "lastModificationDate": 1699372780024,
-      "contentHash": "491ca8ebde17bbb1f715fd0e152820be",
+      "lastModificationDate": 1700215095559,
+      "contentHash": "e959c5c3b2e96348ab8f85079a28dc7e",
       "sourceName": "contracts/RPS.sol",
       "solcConfig": {
         "version": "0.8.20",
