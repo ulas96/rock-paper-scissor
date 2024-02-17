@@ -39,7 +39,7 @@ export function Navbar({account}) {
                         {account !== "None" ? <div className="green-circle"></div> : <div className="gray-circle"> </div> }
                     </div>
                     <div className="account-address">
-                        <small>{account !== "None" ? `${String(account).slice(0,5)}...${String(account).slice(39,42)}` : "Connect Walet"}</small>
+                        <small>{account !== "None" ? `${String(account).slice(0,5)}...${String(account).slice(39,42)}` : "Connect Wallet"}</small>
             </div>
         </div>
     </div>
